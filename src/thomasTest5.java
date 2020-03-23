@@ -1,0 +1,2 @@
+public class thomasTest5 {
+}
