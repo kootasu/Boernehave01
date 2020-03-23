@@ -20,7 +20,7 @@ public class Medarbejder {
     }
 
     public void seVagtplan() {     //Metode
-        
+
     }
 
     private void sletVagtOenske() { //Metode

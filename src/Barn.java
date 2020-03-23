@@ -9,7 +9,7 @@ public class Barn {
    private String navn;
    private int alder;
    private String koen;
-   private Date opskrviningsdato;
+   private Date opskrivningsdato;
 
     public Barn(String stue, boolean aktiv, Foraelder foraelder1, Foraelder foraelder2, String navn, int alder, String koen, Date opskrviningsdato) {
         this.stue = stue;
@@ -19,7 +19,7 @@ public class Barn {
         this.navn = navn;
         this.alder = alder;
         this.koen = koen;
-        this.opskrviningsdato = opskrviningsdato;
+        this.opskrivningsdato = opskrviningsdato;
     }
     public String getStue() {
         return stue;
@@ -72,10 +72,10 @@ public class Barn {
     }
 
     public Date getOpskrviningsdato() {
-        return opskrviningsdato;
+        return opskrivningsdato;
     }
 
     public void setOpskrviningsdato(Date opskrviningsdato) {
-        this.opskrviningsdato = opskrviningsdato;
+        this.opskrivningsdato = opskrviningsdato;
     }
 }
