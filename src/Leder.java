@@ -34,6 +34,15 @@ public class Leder {
 
     public void setPassword(String password) { this.password = password; }
 
+    @Override
+    public String toString() {
+        return "Navn: " + navn + "\n" +
+                "Email: " + email + "\n" +
+                "Telefonnummer: " + telefonnummer + "\n" +
+                "Brugernavn: " + brugernavn + "\n" +
+                "Password: " + password;
+    }
+
     public void opretVagtplan() {
         // Metode
     }
