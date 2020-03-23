@@ -56,18 +56,4 @@ public class Foraelder {
                 "Brugernavn: " + brugernavn + "\n" +
                 "Password: " + password;
     }
-
-    public void skrivBarnPaaVenteliste() {
-        // Metode
-    }
-
-    public void fjernBarnFraVenteliste() {
-        // Metode
-        // Står endnu ikke på klassediagrammet
-    }
-
-    public void seVentelistePlacering() {
-        // Metode
-    }
-
 }

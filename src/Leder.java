@@ -83,7 +83,7 @@ public class Leder {
     public void opretForaelder() {
         // Findes ikke på klassediagrammet endnu
 
-        // Tager imod info fra scanner
+        // Tag imod info fra scanner
         Scanner f = new Scanner(System.in);
         String navn = f.nextLine();
         String adresse = f.nextLine();
@@ -93,7 +93,7 @@ public class Leder {
         String brugernavn = f.nextLine();
         String password = f.nextLine();
 
-        // Tilføjer forælderobjekt til ArrayList foraelderliste
+        // Tilføj forælderobjekt til ArrayList forælderliste
         Lister.foraelderliste.add(new Foraelder(navn, adresse, email, telefon1, telefon2, brugernavn, password));
 
         // Gem ArrayList i fil

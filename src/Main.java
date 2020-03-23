@@ -1,6 +1,5 @@
-import java.util.Calendar;
 import java.io.FileNotFoundException;
-
+import java.util.Calendar;
 
 public class Main {
 
@@ -12,7 +11,7 @@ public class Main {
         Vagtplan vagtplan = new Vagtplan(calendar.getTime(), 8);
         System.out.println(vagtplan);
 
-        /*
+
         Lister lister = new Lister();
         lister.opretForaelderliste();
         System.out.println(Lister.foraelderliste);
@@ -20,7 +19,6 @@ public class Main {
         Leder leder = new Leder();
         leder.opretForaelder();
         System.out.println(Lister.foraelderliste);
-        */
 
     }
 }
