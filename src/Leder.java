@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Leder {
 
     private String navn;
@@ -12,6 +14,9 @@ public class Leder {
         this.telefonnummer = telefonnummer;
         this.brugernavn = brugernavn;
         this.password = password;
+    }
+
+    public Leder() {
     }
 
     public String getNavn() { return navn; }
@@ -72,6 +77,42 @@ public class Leder {
     }
 
     public void sletMedarbejder() {
+        // Metode
+    }
+
+    public void opretForaelder() {
+        // Findes ikke på klassediagrammet endnu
+
+        // Tag imod info fra scanner
+        Scanner f = new Scanner(System.in);
+        String navn = f.nextLine();
+        String adresse = f.nextLine();
+        String email = f.nextLine();
+        String telefon1 = f.nextLine();
+        String telefon2 = f.nextLine();
+        String brugernavn = f.nextLine();
+        String password = f.nextLine();
+
+        // Tilføj forælderobjekt til ArrayList forælderliste
+        Lister.foraelderliste.add(new Foraelder(navn, adresse, email, telefon1, telefon2, brugernavn, password));
+
+        // Gem ArrayList i fil
+        // Hvordan kan man gøre det?
+
+    }
+
+    public void seForaelder() {
+        // Findes ikke på klassediagrammet endnu
+        // Metode
+    }
+
+    public void opdaterForaelder() {
+        // Findes ikke på klassediagrammet endnu
+        // Metode
+    }
+
+    public void sletForaelder() {
+        // Findes ikke på klassediagrammet endnu
         // Metode
     }
 
