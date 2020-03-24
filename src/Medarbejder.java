@@ -30,4 +30,11 @@ public class Medarbejder {
     private void oenskVagt() {      //Metode
         
     }
+
+    @Override
+    public String toString() {
+        return navn + "," + email + "," + telefonnummer + "," +
+                brugernavn + "," + password + "," +
+                stue + "," + stilling;
+    }
 }

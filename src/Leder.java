@@ -1,3 +1,6 @@
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 
 public class Leder {
@@ -48,6 +51,11 @@ public class Leder {
                 "Password: " + password;
     }
 
+    public void sletIndholdITekstfil(String path) throws IOException {
+        new FileWriter(path, false).close();
+        // Findes ikke på klassediagrammet endnu
+    }
+
     public void opretVagtplan() {
         // Metode
     }
@@ -64,8 +72,42 @@ public class Leder {
         // Metode
     }
 
-    public void opretMedarbejder() {
-        // Metode
+    public void opretMedarbejder() throws IOException {
+        // Findes ikke på klassediagrammet endnu
+
+        // Tager imod info fra scanner
+        Scanner s = new Scanner(System.in);
+        System.out.println("Fortæl mig lidt om medarbejderen :P");
+        System.out.println("Navn: ");
+        String navn = s.nextLine();
+        System.out.println("Email: ");
+        String email = s.nextLine();
+        System.out.println("Telefonnummer: ");
+        String telefonnummer = s.nextLine();
+        System.out.println("Brugernavn: ");
+        String brugernavn = s.nextLine();
+        System.out.println("Password: ");
+        String password = s.nextLine();
+        System.out.println("Stue: ");
+        String stue = s.nextLine();
+        System.out.println("Stilling: ");
+        String stilling = s.nextLine();
+
+        // Tilføjer forælderobjekt til ArrayList foraelderliste
+        Lister.medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling));
+
+        // Sletter alt i tekstfilen
+        sletIndholdITekstfil("src/lister/Medarbejdere.txt");
+
+        // Skriver elementerne fra ArrayListen medarbejderliste til fil
+        FileWriter f = new FileWriter("src/lister/Medarbejdere.txt", true);
+        try {
+            for (int i = 0; i < Lister.medarbejderliste.size(); i++) {
+                f.write(Lister.medarbejderliste.get(i).toString() + "\n");
+            }
+            f.close();
+        } catch (IOException e) {
+        }
     }
 
     public void seMedarbejder() {
@@ -80,25 +122,42 @@ public class Leder {
         // Metode
     }
 
-    public void opretForaelder() {
+    public void opretForaelder() throws IOException {
         // Findes ikke på klassediagrammet endnu
 
-        // Tag imod info fra scanner
-        Scanner f = new Scanner(System.in);
-        String navn = f.nextLine();
-        String adresse = f.nextLine();
-        String email = f.nextLine();
-        String telefon1 = f.nextLine();
-        String telefon2 = f.nextLine();
-        String brugernavn = f.nextLine();
-        String password = f.nextLine();
+        // Tager imod info fra scanner
+        Scanner s = new Scanner(System.in);
+        System.out.println("Fortæl mig lidt om forælderen :)");
+        System.out.println("Navn: ");
+        String navn = s.nextLine();
+        System.out.println("Adresse: ");
+        String adresse = s.nextLine();
+        System.out.println("Email: ");
+        String email = s.nextLine();
+        System.out.println("Telefonnummer 1: ");
+        String telefon1 = s.nextLine();
+        System.out.println("Telefonnummer 2: ");
+        String telefon2 = s.nextLine();
+        System.out.println("Brugernavn: ");
+        String brugernavn = s.nextLine();
+        System.out.println("Password: ");
+        String password = s.nextLine();
 
-        // Tilføj forælderobjekt til ArrayList forælderliste
+        // Tilføjer forælderobjekt til ArrayList foraelderliste
         Lister.foraelderliste.add(new Foraelder(navn, adresse, email, telefon1, telefon2, brugernavn, password));
 
-        // Gem ArrayList i fil
-        // Hvordan kan man gøre det?
+        // Sletter alt i tekstfilen
+        sletIndholdITekstfil("src/lister/Foraeldre");
 
+        // Skriver elementerne fra ArrayListen foraelderliste til fil
+        FileWriter f = new FileWriter("src/lister/Foraeldre", true);
+        try {
+            for (int i = 0; i < Lister.foraelderliste.size(); i++) {
+                f.write(Lister.foraelderliste.get(i).toString() + "\n");
+            }
+            f.close();
+        } catch (IOException e) {
+        }
     }
 
     public void seForaelder() {

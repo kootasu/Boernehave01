@@ -48,12 +48,8 @@ public class Foraelder {
 
     @Override
     public String toString() {
-        return "Navn: " + navn + "\n" +
-                "Adresse: " + adresse + "\n" +
-                "Email: " + email + "\n" +
-                "Telefonnummer 1: " + telefonnummer1 + "\n" +
-                "Telefonnummer 2: " + telefonnummer2 + "\n" +
-                "Brugernavn: " + brugernavn + "\n" +
-                "Password: " + password;
+        return navn + "," + adresse + "," + email + "," +
+                telefonnummer1 + "," + telefonnummer2 + "," +
+                brugernavn + "," + password;
     }
 }
