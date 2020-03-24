@@ -42,7 +42,7 @@ public class Lister {
                 String[] info = f.nextLine().split(",");
                 String stue = info[0];
                 boolean aktiv = Boolean.parseBoolean(info[1]);
-                Foraelder foraelder1 = info[2];
+                Foraelder foraelder1 = info[2]; // Thomas: Vi har givet forældrene nogle id numre så vi ikke behøver at have hele forældre objektet i børnefilen.
                 Foraelder foraelder2 = info[3];
                 String navn = info[4];
                 int alder = Integer.parseInt(info[5]);
