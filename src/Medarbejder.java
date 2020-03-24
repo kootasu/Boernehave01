@@ -19,7 +19,7 @@ public class Medarbejder {
         this.stilling = stilling;
     }
 
-    public void seVagtplan() {     //Metode
+    public void seVagtplan() {      //Metode
 
     }
 

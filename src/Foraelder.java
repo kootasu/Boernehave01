@@ -7,8 +7,9 @@ public class Foraelder {
     private String telefonnummer2;
     private String brugernavn;
     private String password;
+    private int idNummer;
 
-    public Foraelder(String navn, String adresse, String email, String telefonnummer1, String telefonnummer2, String brugernavn, String password) {
+    public Foraelder(String navn, String adresse, String email, String telefonnummer1, String telefonnummer2, String brugernavn, String password, int idNummer) {
         this.navn = navn;
         this.adresse = adresse;
         this.email = email;
@@ -16,6 +17,7 @@ public class Foraelder {
         this.telefonnummer2 = telefonnummer2;
         this.brugernavn = brugernavn;
         this.password = password;
+        this.idNummer = idNummer;
     }
 
     public String getNavn() { return navn; }
