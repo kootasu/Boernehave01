@@ -53,7 +53,6 @@ public class Leder {
 
     public void sletIndholdITekstfil(String path) throws IOException {
         new FileWriter(path, false).close();
-        // Findes ikke på klassediagrammet endnu
     }
 
     public void opretVagtplan() {
@@ -73,8 +72,6 @@ public class Leder {
     }
 
     public void opretMedarbejder() throws IOException {
-        // Findes ikke på klassediagrammet endnu
-
         // Tager imod info fra scanner
         Scanner s = new Scanner(System.in);
         System.out.println("Fortæl mig lidt om medarbejderen :P");
@@ -161,17 +158,14 @@ public class Leder {
     }
 
     public void seForaelder() {
-        // Findes ikke på klassediagrammet endnu
         // Metode
     }
 
     public void opdaterForaelder() {
-        // Findes ikke på klassediagrammet endnu
         // Metode
     }
 
     public void sletForaelder() {
-        // Findes ikke på klassediagrammet endnu
         // Metode
     }
 
