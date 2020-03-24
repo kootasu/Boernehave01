@@ -1,11 +1,25 @@
-Janus Pedersen,Janusvej 1,janus@janus.dk,00000000,00000001,janus,janus
-Niclas Frederiksen Pedersen,Janusvej 1,janus@janus.dk,00000002,00000003,janus,janus
-Magnus Larsen,Regnarsgade 10,ML@gmail.com,00000004,00000005,MagnusL,MagnusL
-Ingrid Larsen,Regnarsgade 10,IL@gmail.com,00000006,00000007,IngridL,IngridL
-Elizabeth Bucket,Svalestrædet 16,EB@gmail.com,00000008,00000009,ElizabethB,ElizabethB
-Tom Bucket,Svalestrædet 16,EB@gmail.com,00000010,00000011,TomB,TomB
-Covid-Nine Teen,KinasGademarked 533b,CT@gmail.com,00000012,00000013,CNT,CNT
-SARS Teen,KinasGademarked 533b,ST@gmail.com,00000014,00000015,SarsT,SarsT
-Orgie-E,Albertslundhovedgade 82,Orgie@gmail.com,00000016,00000017,OrgieE,OrgieE
-Rune Rask,Albertslundhovedgade 82,RR@gmail.com,00000018,00000019,RuneRask,RuneRask
-Martin Hjelmstad,Jellingevej 2,MH@gmail.comForaeldre,00000020,00000021,MartinH,MartinH
+Janus Pedersen,Janusvej 1,janus@janus.dk,00000000,00000001,janus,janus,1
+Niclas Frederiksen Pedersen,Janusvej 1,janus@janus.dk,00000002,00000003,janus,janus,2
+Magnus Larsen,Regnarsgade 10,ML@gmail.com,00000004,00000005,MagnusL,MagnusL,3
+Ingrid Larsen,Regnarsgade 10,IL@gmail.com,00000006,00000007,IngridL,IngridL,4
+Elizabeth Bucket,Svalestrædet 16,EB@gmail.com,00000008,00000009,ElizabethB,ElizabethB,5
+Tom Bucket,Svalestrædet 16,EB@gmail.com,00000010,00000011,TomB,TomB,6
+Covid-Nine Teen,KinasGademarked 533b,CT@gmail.com,00000012,00000013,CNT,CNT,7
+SARS Teen,KinasGademarked 533b,ST@gmail.com,00000014,00000015,SarsT,SarsT,8
+Orgie-E,Albertslundhovedgade 82,Orgie@gmail.com,00000016,00000017,OrgieE,OrgieE,9
+Rune Rask,Albertslundhovedgade 82,RR@gmail.com,00000018,00000019,RuneRask,RuneRask,10
+Martin Hjelmstad,Jellingevej 2,MH@gmail.comForaeldre,00000020,00000021,MartinH,MartinH,11
+Anne Hjelmstad,Jellingevej 2,ah@gmail.com,12345678,23456789,AnneH,ahmod,12
+Kirsten Jensen,Tusmørkevej 4,kj@gmail.com,34567890,31000001,KirstenJ,kjmode,13
+Jens Jensen,Tusmørkevej 4,jj@gmail.com,31000002,31000003,JensJ,kopmod,14
+Mette Hansen,Goddagvej 45,mh@gmail.com,,31000004,31000005,MetteH,kopto,15
+Michael Hansen,Goddagvej 45,MHH@gmail.com,31000006,31000007,MichaelH,detbllev,16
+Hanne Pedersen,Solvej 21,HPP@gmail.com,31000008,31000009,Hannepp,duskal,17
+Lars Pedersen,Solvej 21,LPP@gmail.com,310000010,31000011,Larspp,dfklod,18
+Helle Andersen,Grøndalsvej 65,HAA@gmail.com,31000012,31000013,HelleAA,kllopg,19
+Thomas Andersen,Grøndalsvej,65,TAT@gmail.com,,31000014,31000015,ThomasAS,lopper,20
+Anna Christensen,Blivvej 54,ACC@gmail.com,31000016,31000017,Annats,topper,21
+Henrik Christensen,Blivvej 54,HCrt@gmail.com,31000018,31000019,Henriktr,opper,22
+Susanne Larsen,Birkegade 12,SLk@gmail.com,31000020,31000021,Susanneslk,detskal,23
+Søren Larsen,Birkegade 12,SLop@gmail.com,31000022,31000022,Sørenkjh,godgg,24
+
