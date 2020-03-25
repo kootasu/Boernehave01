@@ -7,9 +7,9 @@ public class Foraelder {
     private String telefonnummer2;
     private String brugernavn;
     private String password;
-    private int idNummer;
+    private String idNummer;
 
-    public Foraelder(String navn, String adresse, String email, String telefonnummer1, String telefonnummer2, String brugernavn, String password, int idNummer) {
+    public Foraelder(String navn, String adresse, String email, String telefonnummer1, String telefonnummer2, String brugernavn, String password, String idNummer) {
         this.navn = navn;
         this.adresse = adresse;
         this.email = email;

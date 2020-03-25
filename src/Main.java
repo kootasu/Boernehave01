@@ -32,5 +32,8 @@ public class Main {
         leder.opretMedarbejder();
         System.out.println(Lister.foraelderliste);*/
 
+        lister.opretVagtOenskerListe();
+        System.out.println(Lister.vagtoenskeliste);
+
     }
 }
