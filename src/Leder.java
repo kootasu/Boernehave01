@@ -1,6 +1,8 @@
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Leder {
@@ -56,15 +58,47 @@ public class Leder {
     }
 
     public void opretVagtplan() {
-        // Metode
+        Date startTidspunkt = null;
+        int antalDage;
+        int vagtplanNummer;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Hvornår skal vagtplanen starte? (Angiv datoen i formatet: dd/mm/aaaa)");
+        try {
+            startTidspunkt = new SimpleDateFormat("dd/MM/yyyy/H").parse(input.nextLine()+"/8"); //Tilføjer /8 til input, hvilket svarer til kl 08, da vagtplanerne skal starte fra kl 08 af.
+        }
+        catch (Exception e)
+        {
+            System.out.println("Der skete en fejl: " + e.getMessage());
+        }
+
+        System.out.println("Hvor mange dage skal vagtplanen vare?");
+        antalDage = input.nextInt();
+
+        Vagtplan vagtplan = new Vagtplan(startTidspunkt, antalDage);
+
+        System.out.println("Vagtplanen er nu oprettet.");
+
+        //Gemmer vagtplanen
+        try {
+            vagtplanNummer = new File("src/lister/Vagtplaner/").list().length;
+            FileWriter f = new FileWriter("src/lister/Vagtplaner/vagtplan" + vagtplanNummer + ".txt", true);
+
+            f.write(vagtplan.TextFilFormat());
+
+            f.close();
+        }
+        catch (IOException e) {
+        }
+
     }
 
     public void seVagtplan() {
-        // Metode
+
     }
 
     public void opdaterVagtplan() {
-        // Metode
+
     }
 
     public void sletVagtplan() {
@@ -89,15 +123,17 @@ public class Leder {
         String stue = s.nextLine();
         System.out.println("Stilling: ");
         String stilling = s.nextLine();
+        System.out.println("ID: ");
+        String medarbejderID = s.nextLine();
 
-        // Tilføjer forælderobjekt til ArrayList foraelderliste
-        Lister.medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling));
+        // Tilføjer medarbejderobjekt til ArrayList medarbejderliste
+        Lister.medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling, medarbejderID));
 
         // Sletter alt i tekstfilen
-        sletIndholdITekstfil("src/lister/Medarbejdere.txt");
+        sletIndholdITekstfil("src/lister/Medarbejdere");
 
         // Skriver elementerne fra ArrayListen medarbejderliste til fil
-        FileWriter f = new FileWriter("src/lister/Medarbejdere.txt", true);
+        FileWriter f = new FileWriter("src/lister/Medarbejdere", true);
         try {
             for (int i = 0; i < Lister.medarbejderliste.size(); i++) {
                 f.write(Lister.medarbejderliste.get(i).toString() + "\n");
@@ -141,7 +177,9 @@ public class Leder {
         String password = s.nextLine();
 
         // Tilføjer forælderobjekt til ArrayList foraelderliste
-        Lister.foraelderliste.add(new Foraelder(navn, adresse, email, telefon1, telefon2, brugernavn, password));
+
+        /*Kommenterer denne linje indtil der er styr på alt omkring forældre
+        Lister.foraelderliste.add(new Foraelder(navn, adresse, email, telefon1, telefon2, brugernavn, password));*/
 
         // Sletter alt i tekstfilen
         sletIndholdITekstfil("src/lister/Foraeldre");
