@@ -128,10 +128,10 @@ public class Leder {
         Lister.medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling));
 
         // Sletter alt i tekstfilen
-        sletIndholdITekstfil("src/lister/Medarbejdere.txt");
+        sletIndholdITekstfil("src/lister/Medarbejdere");
 
         // Skriver elementerne fra ArrayListen medarbejderliste til fil
-        FileWriter f = new FileWriter("src/lister/Medarbejdere.txt", true);
+        FileWriter f = new FileWriter("src/lister/Medarbejdere", true);
         try {
             for (int i = 0; i < Lister.medarbejderliste.size(); i++) {
                 f.write(Lister.medarbejderliste.get(i).toString() + "\n");

@@ -12,9 +12,10 @@ public class Lister {
     public static ArrayList<Barn> boerneliste = new ArrayList<Barn>();
     public static ArrayList<Foraelder> foraelderliste = new ArrayList<Foraelder>();
     public static ArrayList<Vagtplan> vagtplanliste = new ArrayList<>();
+    public static ArrayList<VagtOensker> vagtoenskeliste = new ArrayList<VagtOensker>();
 
     public void opretMedarbejderliste() throws FileNotFoundException {
-        File medarbejdereFraFil = new File("src/lister/Medarbejdere.txt");
+        File medarbejdereFraFil = new File("src/lister/Medarbejdere");
         Scanner f = new Scanner(medarbejdereFraFil);
         try {
             while (f.hasNextLine()) {
@@ -26,7 +27,8 @@ public class Lister {
                 String password = info[4];
                 String stue = info[5];
                 String stilling = info[6];
-                medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling));
+                String medarbejderID = info [7];
+                medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling, medarbejderID));
             }
         }
         catch (Exception e) {}
@@ -70,6 +72,8 @@ public class Lister {
                 String telefonnummer2 = info[4];
                 String brugernavn = info[5];
                 String password = info[6];
+                String idNummer = info[7];
+                foraelderliste.add(new Foraelder(navn, adresse, email, telefonnummer1, telefonnummer2, brugernavn, password, idNummer));
                 //foraelderliste.add(new Foraelder(navn, adresse, email, telefonnummer1, telefonnummer2, brugernavn, password));
             }
         }
@@ -180,6 +184,18 @@ public class Lister {
     public void opretStorStueListe() {
         // Metode
     }
-
-
+    public void opretVagtOenskerListe() throws FileNotFoundException {
+        File vagtOenskerFraFil = new File("src/lister/VagtOensker");
+        Scanner sc = new Scanner(vagtOenskerFraFil);
+        try {
+            while (sc.hasNextLine()) {
+                String[] info = sc.nextLine().split(",");
+                Date tidStart = new Date(Long.parseLong(info[0]));
+                Date tidSlut = new Date(Long.parseLong(info[1]));
+                String medarbejderID = info[2];
+                vagtoenskeliste.add(new VagtOensker(tidStart, tidSlut, medarbejderID));
+            }
+        }
+        catch (Exception e) {}
+    }
 }
