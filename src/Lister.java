@@ -15,7 +15,7 @@ public class Lister {
     public static ArrayList<VagtOensker> vagtoenskeliste = new ArrayList<VagtOensker>();
 
     public void opretMedarbejderliste() throws FileNotFoundException {
-        File medarbejdereFraFil = new File("src/lister/Medarbejdere.txt");
+        File medarbejdereFraFil = new File("src/lister/Medarbejdere");
         Scanner f = new Scanner(medarbejdereFraFil);
         try {
             while (f.hasNextLine()) {
@@ -27,7 +27,8 @@ public class Lister {
                 String password = info[4];
                 String stue = info[5];
                 String stilling = info[6];
-                medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling));
+                String medarbejderID = info [7];
+                medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling, medarbejderID));
             }
         }
         catch (Exception e) {}
@@ -184,17 +185,15 @@ public class Lister {
         // Metode
     }
     public void opretVagtOenskerListe() throws FileNotFoundException {
-        File vagtOenskerFraFil = new File("src/lister/VagtOensker.txt");
+        File vagtOenskerFraFil = new File("src/lister/VagtOensker");
         Scanner sc = new Scanner(vagtOenskerFraFil);
         try {
             while (sc.hasNextLine()) {
                 String[] info = sc.nextLine().split(",");
-                String navn = info[0];
-                String tidStart = info[1];
-                String tidSlut = info[2];
-                String vagtDato = info[3];
-                String stue = info[4];
-                vagtoenskeliste.add(new Medarbejder(navn, tidStart, tidSlut, vagtDato, stue,));
+                Date tidStart = new Date(Long.parseLong(info[0]));
+                Date tidSlut = new Date(Long.parseLong(info[1]));
+                String medarbejderID = info[2];
+                vagtoenskeliste.add(new VagtOensker(tidStart, tidSlut, medarbejderID));
             }
         }
         catch (Exception e) {}
