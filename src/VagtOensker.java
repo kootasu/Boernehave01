@@ -13,6 +13,7 @@ public class VagtOensker {
     }
 
     public String toString() {
-        return "" + starttidspunkt.getTime() + " " + sluttidspunkt.getTime() + " " + medarbejderID;
+        //return "" + starttidspunkt.getTime() + "," + sluttidspunkt.getTime() + "," + medarbejderID + "\n";
+        return starttidspunkt + "," + sluttidspunkt + "," + medarbejderID;
     }
 }

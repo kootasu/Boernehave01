@@ -123,9 +123,11 @@ public class Leder {
         String stue = s.nextLine();
         System.out.println("Stilling: ");
         String stilling = s.nextLine();
+        System.out.println("ID: ");
+        String medarbejderID = s.nextLine();
 
-        // Tilføjer forælderobjekt til ArrayList foraelderliste
-        Lister.medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling));
+        // Tilføjer medarbejderobjekt til ArrayList medarbejderliste
+        Lister.medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling, medarbejderID));
 
         // Sletter alt i tekstfilen
         sletIndholdITekstfil("src/lister/Medarbejdere");
