@@ -80,7 +80,7 @@ public class Lister {
         catch (Exception e) {}
     }
 
-    public void opretVagtplanliste()
+    public static void opretVagtplanliste()
     {
         String[] vagtplaner = new File("src/lister/Vagtplaner/").list();
         for (String s : vagtplaner)
@@ -88,14 +88,14 @@ public class Lister {
             try {
                 File f = new File("src/lister/Vagtplaner/"+s);
                 Scanner input = new Scanner(f);
-                Date startTidspunkt = udtraekDato(input.nextLine());
+                Date startTidspunkt = new Date(Long.parseLong(input.nextLine()));
                 int antalDage = input.nextInt();
                 Vagtplan vagtplan = new Vagtplan(startTidspunkt, antalDage);
                 vagtplanliste.add(vagtplan);
             }
             catch (Exception e)
             {
-                System.out.println(e.getMessage());
+                System.out.println("Opret vagtplan liste: " + e.getMessage());
             }
         }
 

@@ -9,6 +9,12 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         System.out.println("Hello Børnehave!");
 
+        Lister.opretVagtplanliste();
+        Lister liste = new Lister();
+        liste.opretMedarbejderliste();
+        Leder leder = new Leder();
+        leder.opretVagtplan();
+        leder.opdaterVagtplan();
 
         /*
         Calendar calendar = Calendar.getInstance();

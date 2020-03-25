@@ -2,13 +2,13 @@ import java.util.LinkedList;
 
 public class Venteliste {
 
-   private Barn;
+   private Barn barn;
 
     LinkedList<Barn>boern = new LinkedList<>();
 
    public void opskrivboern (Barn barn){
 
-     boern.addLast();
+     boern.addLast(barn);
 
 
    }
