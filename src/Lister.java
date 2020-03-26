@@ -11,7 +11,7 @@ public class Lister {
     public static ArrayList<Vagtplan> vagtplanliste = new ArrayList<>();
     public static ArrayList<VagtOensker> vagtoenskeliste = new ArrayList<VagtOensker>();
 
-    public void opretMedarbejderliste() throws FileNotFoundException {
+    public static void opretMedarbejderliste() throws FileNotFoundException {
         File medarbejdereFraFil = new File("src/lister/Medarbejdere");
         Scanner f = new Scanner(medarbejdereFraFil);
         try {

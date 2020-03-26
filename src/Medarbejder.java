@@ -179,11 +179,4 @@ public class Medarbejder {
         this.stilling = stilling;
     }
 
-    public String getMedarbejderID() {
-        return medarbejderID;
-    }
-
-    public void setMedarbejderID(String medarbejderID) {
-        this.medarbejderID = medarbejderID;
-    }
 }
