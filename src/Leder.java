@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
@@ -57,6 +58,17 @@ public class Leder {
 
     public void sletIndholdITekstfil(String path) throws IOException {
         new FileWriter(path, false).close();
+    }
+
+    public void gemArrayListITekstfil(String path, ArrayList liste) throws IOException {
+        FileWriter f = new FileWriter(path, true);
+        try {
+            for (int i = 0; i < liste.size(); i++) {
+                f.write(liste.get(i).toString() + "\n");
+            }
+            f.close();
+        } catch (IOException e) {
+        }
     }
 
     public void opretVagtplan() {
@@ -253,39 +265,88 @@ public class Leder {
         String stue = s.nextLine();
         System.out.println("Stilling: ");
         String stilling = s.nextLine();
+        System.out.println("MedarbejderID: ");
+        String medarbejderID = s.nextLine();
+        s.close();
 
-        // Tilføjer forælderobjekt til ArrayList foraelderliste
-        //Lister.medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling));
+        // Tilføjer medarbejderobjekt til ArrayList medarbejderliste
+        Lister.medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling, medarbejderID));
 
         // Sletter alt i tekstfilen
         sletIndholdITekstfil("src/lister/Medarbejdere.txt");
 
         // Skriver elementerne fra ArrayListen medarbejderliste til fil
-        FileWriter f = new FileWriter("src/lister/Medarbejdere.txt", true);
-        try {
-            for (int i = 0; i < Lister.medarbejderliste.size(); i++) {
-                f.write(Lister.medarbejderliste.get(i).toString() + "\n");
-            }
-            f.close();
-        } catch (IOException e) {
+        gemArrayListITekstfil("src/lister/Medarbejdere.txt", Lister.medarbejderliste);
+    }
+
+    public void seMedarbejder() throws IOException {
+        // Printer alle medarbejdere fra ArrayListen medarbejderliste
+        System.out.println("Vælg en af de søde medarbejdere:");
+        for (int i = 0; Lister.medarbejderliste.size() > i; i++) {
+            System.out.println("[" + (i) + "] " +
+                    Lister.medarbejderliste.get(i).getNavn() + ", " +
+                    Lister.medarbejderliste.get(i).getEmail() + ", " +
+                    Lister.medarbejderliste.get(i).getTelefonnummer() + ", " +
+                    Lister.medarbejderliste.get(i).getBrugernavn() + ", " +
+                    Lister.medarbejderliste.get(i).getPassword() + ", " +
+                    Lister.medarbejderliste.get(i).getStue() + ", " +
+                    Lister.medarbejderliste.get(i).getStilling() + ", " +
+                    Lister.medarbejderliste.get(i).getMedarbejderID());
         }
+
+        // Vælg en medarbejder
+        Scanner sc = new Scanner(System.in);
+        int medarbejderIndeks = sc.nextInt();
+        System.out.println("Du har valgt " + Lister.medarbejderliste.get(medarbejderIndeks).getNavn());
+
+        System.out.println("Du har nu følgende muligheder: [1] Opdater medarbejder, [2] Slet medarbejder, [3] Tilbage");
+        int valg = sc.nextInt();
+        switch (valg) {
+            case 1:
+                opdaterMedarbejder(medarbejderIndeks);
+                break;
+            case 2:
+                sletMedarbejder(medarbejderIndeks);
+                break;
+            case 3:
+                System.out.println("Tilbage");
+                seMedarbejder();
+                break;
+        }
+        sc.close();
     }
 
-    public void seMedarbejder() {
-        // Metode
+    public void opdaterMedarbejder(int medarbejderIndeks) {
+        System.out.println("Du har valgt at opdatere " + Lister.medarbejderliste.get(medarbejderIndeks).getNavn());
+        // Metode til at opdatere medarbejder
     }
 
-    public void opdaterMedarbejder() {
-        // Metode
-    }
-
-    public void sletMedarbejder() {
-        // Metode
+    public void sletMedarbejder(int medarbejderIndeks) throws IOException {
+        System.out.println("Du har valgt helt og aldeles at slette " + Lister.medarbejderliste.get(medarbejderIndeks).getNavn());
+        System.out.println("Er du helt sikker? Tryk [1] for ja, [2] for at gå tilbage til alle medarbejdere");
+        Scanner sc = new Scanner(System.in);
+        int valg = sc.nextInt();
+        switch (valg) {
+            case 1:
+                System.out.println("Sletter " + Lister.medarbejderliste.get(medarbejderIndeks).getNavn());
+                // Fjern element fra ArrayList
+                Lister.medarbejderliste.remove(medarbejderIndeks);
+                // Slet al info i fil
+                sletIndholdITekstfil("src/lister/Medarbejdere");
+                // Gem opdateret ArrayList til fil
+                gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
+                // Opretter ArrayList igen
+                Lister.opretMedarbejderliste();
+                break;
+            case 2:
+                // Gå tilbage
+                seMedarbejder();
+                break;
+        }
+        sc.close();
     }
 
     public void opretForaelder() throws IOException {
-        // Findes ikke på klassediagrammet endnu
-
         // Tager imod info fra scanner
         Scanner s = new Scanner(System.in);
         System.out.println("Fortæl mig lidt om forælderen :)");
@@ -303,6 +364,7 @@ public class Leder {
         String brugernavn = s.nextLine();
         System.out.println("Password: ");
         String password = s.nextLine();
+        s.close();
 
         // Tilføjer forælderobjekt til ArrayList foraelderliste
 
@@ -313,14 +375,7 @@ public class Leder {
         sletIndholdITekstfil("src/lister/Foraeldre");
 
         // Skriver elementerne fra ArrayListen foraelderliste til fil
-        FileWriter f = new FileWriter("src/lister/Foraeldre", true);
-        try {
-            for (int i = 0; i < Lister.foraelderliste.size(); i++) {
-                f.write(Lister.foraelderliste.get(i).toString() + "\n");
-            }
-            f.close();
-        } catch (IOException e) {
-        }
+        gemArrayListITekstfil("src/lister/Foraeldre", Lister.foraelderliste);
     }
 
     public void seForaelder() {

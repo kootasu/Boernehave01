@@ -26,7 +26,7 @@ public class Main {
         liste.opretMedarbejderliste();
         Leder leder = new Leder();
         leder.opretVagtplan();
-        leder.opdaterVagtplan();*/
+        leder.opdaterVagtplan();
 
         /*
         Calendar calendar = Calendar.getInstance();
@@ -68,6 +68,14 @@ public class Main {
 
         Lister.medarbejderliste.get(0).oenskVagt2();
         */
+
+        // Se medarbejder
+        Lister lister = new Lister();
+        lister.opretMedarbejderliste();
+        Leder leder = new Leder();
+        leder.seMedarbejder();
+
+
 
     }
 }
