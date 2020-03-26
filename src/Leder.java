@@ -56,6 +56,12 @@ public class Leder {
                 "Password: " + password;
     }
 
+    public void sePerson(ArrayList liste) {
+        for (int i = 0; liste.size() > i; i++) {
+            System.out.println("[" + (i) + "] " + liste.get(i));
+        }
+    }
+
     public void sletIndholdITekstfil(String path) throws IOException {
         new FileWriter(path, false).close();
     }
@@ -281,32 +287,21 @@ public class Leder {
 
     public void seMedarbejder() throws IOException {
         // Printer alle medarbejdere fra ArrayListen medarbejderliste
-        System.out.println("Vælg en af de søde medarbejdere:");
-        for (int i = 0; Lister.medarbejderliste.size() > i; i++) {
-            System.out.println("[" + (i) + "] " +
-                    Lister.medarbejderliste.get(i).getNavn() + ", " +
-                    Lister.medarbejderliste.get(i).getEmail() + ", " +
-                    Lister.medarbejderliste.get(i).getTelefonnummer() + ", " +
-                    Lister.medarbejderliste.get(i).getBrugernavn() + ", " +
-                    Lister.medarbejderliste.get(i).getPassword() + ", " +
-                    Lister.medarbejderliste.get(i).getStue() + ", " +
-                    Lister.medarbejderliste.get(i).getStilling() + ", " +
-                    Lister.medarbejderliste.get(i).getMedarbejderID());
-        }
+        sePerson(Lister.medarbejderliste);
 
         // Vælg en medarbejder
         Scanner sc = new Scanner(System.in);
-        int medarbejderIndeks = sc.nextInt();
-        System.out.println("Du har valgt " + Lister.medarbejderliste.get(medarbejderIndeks).getNavn());
+        int indeks = sc.nextInt();
+        System.out.println("Du har valgt " + Lister.medarbejderliste.get(indeks).getNavn());
 
         System.out.println("Du har nu følgende muligheder: [1] Opdater medarbejder, [2] Slet medarbejder, [3] Tilbage");
         int valg = sc.nextInt();
         switch (valg) {
             case 1:
-                opdaterMedarbejder(medarbejderIndeks);
+                opdaterMedarbejder(indeks);
                 break;
             case 2:
-                sletMedarbejder(medarbejderIndeks);
+                sletMedarbejder(indeks);
                 break;
             case 3:
                 System.out.println("Tilbage");
@@ -316,21 +311,100 @@ public class Leder {
         sc.close();
     }
 
-    public void opdaterMedarbejder(int medarbejderIndeks) {
-        System.out.println("Du har valgt at opdatere " + Lister.medarbejderliste.get(medarbejderIndeks).getNavn());
-        // Metode til at opdatere medarbejder
+    public void opdaterMedarbejder(int indeks) throws IOException {
+        System.out.println("Du har valgt at opdatere " + Lister.medarbejderliste.get(indeks).getNavn());
+        System.out.println("Hvad vil du gerne ændre på?");
+        System.out.println("[1] Navn, [2] Email, [3] Telefonnummer, [4] Brugernavn, [5] Password, [6] Stue, [7] Stilling, [8] MedarbejderID");
+        Scanner scValg = new Scanner(System.in);
+        int valg = scValg.nextInt();
+        Scanner scAendring = new Scanner(System.in);
+        switch (valg) {
+            case 1:
+                System.out.println("Hvad vil du ændre navnet til?");
+                String nytNavn = scAendring.nextLine();
+                Lister.medarbejderliste.get(indeks).setNavn(nytNavn);
+                System.out.println("Navnet er ændret til " + Lister.medarbejderliste.get(indeks).getNavn());
+                sletIndholdITekstfil("src/lister/Medarbejdere");
+                gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
+                Lister.opretMedarbejderliste();
+                break;
+            case 2:
+                System.out.println("Hvad vil du ændre emailen til?");
+                String nyEmail = scAendring.nextLine();
+                Lister.medarbejderliste.get(indeks).setEmail(nyEmail);
+                System.out.println("Emailen er ændret til " + Lister.medarbejderliste.get(indeks).getEmail());
+                sletIndholdITekstfil("src/lister/Medarbejdere");
+                gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
+                Lister.opretMedarbejderliste();
+                break;
+            case 3:
+                System.out.println("Hvad vil du ændre telefonnummeret til?");
+                String nyTelefon = scAendring.nextLine();
+                Lister.medarbejderliste.get(indeks).setTelefonnummer(nyTelefon);
+                System.out.println("Telefonnumeret er ændret til " + Lister.medarbejderliste.get(indeks).getTelefonnummer());
+                sletIndholdITekstfil("src/lister/Medarbejdere");
+                gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
+                Lister.opretMedarbejderliste();
+                break;
+            case 4:
+                System.out.println("Hvad vil du ændre brugernavnet til?");
+                String nyBrugernavn = scAendring.nextLine();
+                Lister.medarbejderliste.get(indeks).setBrugernavn(nyBrugernavn);
+                System.out.println("Brugernavnet er ændret til " + Lister.medarbejderliste.get(indeks).getBrugernavn());
+                sletIndholdITekstfil("src/lister/Medarbejdere");
+                gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
+                Lister.opretMedarbejderliste();
+                break;
+            case 5:
+                System.out.println("Hvad vil du ændre passwordet til?");
+                String nyPassword = scAendring.nextLine();
+                Lister.medarbejderliste.get(indeks).setPassword(nyPassword);
+                System.out.println("Passwordet er ændret til " + Lister.medarbejderliste.get(indeks).getPassword());
+                sletIndholdITekstfil("src/lister/Medarbejdere");
+                gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
+                Lister.opretMedarbejderliste();
+                break;
+            case 6:
+                System.out.println("Hvad vil du ændre stuen til?");
+                String nyStue = scAendring.nextLine();
+                Lister.medarbejderliste.get(indeks).setStue(nyStue);
+                System.out.println("Stuen er ændret til " + Lister.medarbejderliste.get(indeks).getStue());
+                sletIndholdITekstfil("src/lister/Medarbejdere");
+                gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
+                Lister.opretMedarbejderliste();
+                break;
+            case 7:
+                System.out.println("Hvad vil du ændre stillingen til?");
+                String nyStilling = scAendring.nextLine();
+                Lister.medarbejderliste.get(indeks).setStilling(nyStilling);
+                System.out.println("Stillingen er ændret til " + Lister.medarbejderliste.get(indeks).getStilling());
+                sletIndholdITekstfil("src/lister/Medarbejdere");
+                gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
+                Lister.opretMedarbejderliste();
+                break;
+            case 8:
+                System.out.println("Hvad vil du ændre ID'et til?");
+                String nyID = scAendring.nextLine();
+                Lister.medarbejderliste.get(indeks).setMedarbejderID(nyID);
+                System.out.println("ID'et er ændret til " + Lister.medarbejderliste.get(indeks).getMedarbejderID());
+                sletIndholdITekstfil("src/lister/Medarbejdere");
+                gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
+                Lister.opretMedarbejderliste();
+                break;
+        }
+        // Tilbage
     }
 
-    public void sletMedarbejder(int medarbejderIndeks) throws IOException {
-        System.out.println("Du har valgt helt og aldeles at slette " + Lister.medarbejderliste.get(medarbejderIndeks).getNavn());
+    public void sletMedarbejder(int indeks) throws IOException {
+        System.out.println("Du har valgt helt og aldeles at slette " + Lister.medarbejderliste.get(indeks).getNavn());
         System.out.println("Er du helt sikker? Tryk [1] for ja, [2] for at gå tilbage til alle medarbejdere");
         Scanner sc = new Scanner(System.in);
         int valg = sc.nextInt();
         switch (valg) {
             case 1:
-                System.out.println("Sletter " + Lister.medarbejderliste.get(medarbejderIndeks).getNavn());
+                System.out.println("Sletter " + Lister.medarbejderliste.get(indeks).getNavn());
                 // Fjern element fra ArrayList
-                Lister.medarbejderliste.remove(medarbejderIndeks);
+                Lister.medarbejderliste.remove(indeks);
                 // Slet al info i fil
                 sletIndholdITekstfil("src/lister/Medarbejdere");
                 // Gem opdateret ArrayList til fil
