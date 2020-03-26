@@ -231,7 +231,11 @@ public class Leder {
     }
 
     public void seMedarbejder() {
-        // Metode
+        // Se liste over alle medarbejdere
+        for (int i = 0; Lister.medarbejderliste.size() > 0; i++) {
+            System.out.println(Lister.medarbejderliste.get(i));
+        }
+        // Tilbageknap
     }
 
     public void opdaterMedarbejder() {

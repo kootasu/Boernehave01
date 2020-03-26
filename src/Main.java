@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,12 +11,14 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         System.out.println("Hello Børnehave!");
 
+        /*
         Lister.opretVagtplanliste();
         Lister liste = new Lister();
         liste.opretMedarbejderliste();
         Leder leder = new Leder();
         leder.opretVagtplan();
         leder.opdaterVagtplan();
+        */
 
         /*
         Calendar calendar = Calendar.getInstance();
@@ -51,11 +55,19 @@ public class Main {
 
         lister.opretMedarbejderliste();
 
-        lister.opretVagtOenskerListe();
+        lister.opretVagtOenskeListe();
         System.out.println(Lister.vagtoenskeliste);
 
         Lister.medarbejderliste.get(0).oenskVagt2();
         */
+
+        // Se medarbejder
+        Lister lister = new Lister();
+        lister.opretMedarbejderliste();
+        Leder leder = new Leder();
+        leder.seMedarbejder();
+
+
 
     }
 }

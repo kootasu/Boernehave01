@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 import java.text.SimpleDateFormat;
 
 public class Lister {
@@ -184,18 +181,27 @@ public class Lister {
     public void opretStorStueListe() {
         // Metode
     }
-    public void opretVagtOenskerListe() throws FileNotFoundException {
+
+    public void opretVagtOenskeListe() throws FileNotFoundException {
         File vagtOenskerFraFil = new File("src/lister/VagtOensker");
         Scanner sc = new Scanner(vagtOenskerFraFil);
+        SimpleDateFormat formatter = new SimpleDateFormat("EEE-MMM-dd-HH:mm:ss-zzz-yyyy", Locale.ENGLISH);
         try {
             while (sc.hasNextLine()) {
                 String[] info = sc.nextLine().split(",");
-                Date tidStart = new Date(Long.parseLong(info[0]));
-                Date tidSlut = new Date(Long.parseLong(info[1]));
+                String tidStartString = info[0];
+                String tidSlutString = info[1];
                 String medarbejderID = info[2];
-                vagtoenskeliste.add(new VagtOensker(tidStart, tidSlut, medarbejderID));
+
+                Date tidStartDate = formatter.parse(tidStartString);
+                Date tidSlutDate = formatter.parse(tidSlutString);
+
+                vagtoenskeliste.add(new VagtOensker(tidStartDate, tidSlutDate, medarbejderID));
             }
         }
         catch (Exception e) {}
     }
+
+
+
 }
