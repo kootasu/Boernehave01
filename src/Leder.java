@@ -224,13 +224,14 @@ public class Leder {
         valg = input.nextInt();
         filNavn = new File("src/lister/Vagtplaner/" + filer[valg-1]);
         filNavn.setWritable(true);
+
          if (filNavn.delete())
              System.out.println("slettet");
          else {
              System.out.println("Ikke slettet");
              System.out.println(filNavn.getPath());
          }
-        System.out.println("Filen  ["+ filer[valg - 1] + "] er nu slettet");
+        //System.out.println("Filen  ["+ filer[valg - 1] + "] er nu slettet");
 
     }
 

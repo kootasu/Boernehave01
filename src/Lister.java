@@ -92,7 +92,7 @@ public class Lister {
                 Vagtplan vagtplan = new Vagtplan(startTidspunkt, antalDage);
                 vagtplanliste.add(vagtplan);
 
-                input = new Scanner(f);
+                //input = new Scanner(f);
                 input.nextLine();
                 input.nextLine();
                 while (input.hasNextLine())
@@ -123,6 +123,7 @@ public class Lister {
                 }
 
                 input.close();
+                System.out.println("Scanner er lukket");
             }
             catch (Exception e)
             {
