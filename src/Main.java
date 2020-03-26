@@ -8,13 +8,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
 
-        Lister lister = new Lister();
-        lister.opretMedarbejderliste();
-        Lister.opretVagtplanliste();
-        System.out.println("Hello Børnehave!");
-
-        Leder leder = new Leder();
-        leder.sletVagtplan();
+        Lister liste = new Lister();
+        liste.opretVagtOenskerListe();
+        for (VagtOensker v:  Lister.vagtoenskeliste)
+        {
+            System.out.println(v.getStarttidspunkt());
+            System.out.println(v.getSluttidspunkt());
+            System.out.println(v.getMedarbejderID());
+        }
 
         /*
         Lister.opretVagtplanliste();

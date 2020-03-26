@@ -16,4 +16,28 @@ public class VagtOensker {
         //return "" + starttidspunkt.getTime() + "," + sluttidspunkt.getTime() + "," + medarbejderID + "\n";
         return starttidspunkt + "," + sluttidspunkt + "," + medarbejderID;
     }
+
+    public Date getStarttidspunkt() {
+        return starttidspunkt;
+    }
+
+    public void setStarttidspunkt(Date starttidspunkt) {
+        this.starttidspunkt = starttidspunkt;
+    }
+
+    public Date getSluttidspunkt() {
+        return sluttidspunkt;
+    }
+
+    public void setSluttidspunkt(Date sluttidspunkt) {
+        this.sluttidspunkt = sluttidspunkt;
+    }
+
+    public String getMedarbejderID() {
+        return medarbejderID;
+    }
+
+    public void setMedarbejderID(String medarbejderID) {
+        this.medarbejderID = medarbejderID;
+    }
 }

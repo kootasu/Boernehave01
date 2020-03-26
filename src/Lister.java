@@ -226,8 +226,8 @@ public class Lister {
         try {
             while (sc.hasNextLine()) {
                 String[] info = sc.nextLine().split(",");
-                Date tidStart = new Date(Long.parseLong(info[0]));
-                Date tidSlut = new Date(Long.parseLong(info[1]));
+                Date tidStart = new Date(udtraekDato(info[0]).getTime());
+                Date tidSlut = new Date(udtraekDato(info[1]).getTime());
                 String medarbejderID = info[2];
                 vagtoenskeliste.add(new VagtOensker(tidStart, tidSlut, medarbejderID));
             }
