@@ -106,6 +106,22 @@ public class Leder {
     }
 
     public void seVagtplan() {
+        int taeller = 1;
+        int valg;
+        Scanner input = new Scanner(System.in);
+        String[] filer = new File("src/lister/Vagtplaner/").list();
+
+        System.out.println("Hvilken vagtplan vil du se?");
+
+        for (String fil : filer)
+        {
+            System.out.println(taeller + " : " + fil);
+            taeller++;
+        }
+
+        valg = input.nextInt();
+
+        System.out.println(Lister.vagtplanliste.get(valg - 1).toString());
 
     }
 
@@ -191,7 +207,31 @@ public class Leder {
     }
 
     public void sletVagtplan() {
-        // Metode
+        int taeller = 1;
+        int valg;
+        Scanner input = new Scanner(System.in);
+        String[] filer = new File("src/lister/Vagtplaner/").list();
+        File filNavn;
+
+        System.out.println("Hvilken vagtplan vil du slette?");
+
+        for (String fil : filer)
+        {
+            System.out.println(taeller + " : " + fil);
+            taeller++;
+        }
+
+        valg = input.nextInt();
+        filNavn = new File("src/lister/Vagtplaner/" + filer[valg-1]);
+        filNavn.setWritable(true);
+         if (filNavn.delete())
+             System.out.println("slettet");
+         else {
+             System.out.println("Ikke slettet");
+             System.out.println(filNavn.getPath());
+         }
+        System.out.println("Filen  ["+ filer[valg - 1] + "] er nu slettet");
+
     }
 
     public void opretMedarbejder() throws IOException {

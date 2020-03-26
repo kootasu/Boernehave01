@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,7 +7,15 @@ import java.util.Calendar;
 public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
-        System.out.println("Hello Børnehave!");
+
+        Lister liste = new Lister();
+        liste.opretVagtOenskerListe();
+        for (VagtOensker v:  Lister.vagtoenskeliste)
+        {
+            System.out.println(v.getStarttidspunkt());
+            System.out.println(v.getSluttidspunkt());
+            System.out.println(v.getMedarbejderID());
+        }
 
         /*
         Lister.opretVagtplanliste();
@@ -18,7 +24,6 @@ public class Main {
         Leder leder = new Leder();
         leder.opretVagtplan();
         leder.opdaterVagtplan();
-        */
 
         /*
         Calendar calendar = Calendar.getInstance();
@@ -55,7 +60,7 @@ public class Main {
 
         lister.opretMedarbejderliste();
 
-        lister.opretVagtOenskeListe();
+        lister.opretVagtOenskerListe();
         System.out.println(Lister.vagtoenskeliste);
 
         Lister.medarbejderliste.get(0).oenskVagt2();
