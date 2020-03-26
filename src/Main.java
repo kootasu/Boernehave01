@@ -7,14 +7,22 @@ import java.util.Calendar;
 public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
+
+        Lister lister = new Lister();
+        lister.opretMedarbejderliste();
+        Lister.opretVagtplanliste();
         System.out.println("Hello Børnehave!");
 
+        Leder leder = new Leder();
+        leder.sletVagtplan();
+
+        /*
         Lister.opretVagtplanliste();
         Lister liste = new Lister();
         liste.opretMedarbejderliste();
         Leder leder = new Leder();
         leder.opretVagtplan();
-        leder.opdaterVagtplan();
+        leder.opdaterVagtplan();*/
 
         /*
         Calendar calendar = Calendar.getInstance();

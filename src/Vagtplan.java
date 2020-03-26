@@ -58,9 +58,14 @@ public class Vagtplan {
         {
             for (int time = 0; time < 8; time++)
             {
-                s+= vagter[dag][time].toString() + " Medarbejdere";
-                s+= vagter[dag][time].getMedarbejdere().toString() + "\n";
+                s+= vagter[dag][time].toString() + " Medarbejdere [";
+                for (Medarbejder m : vagter[dag][time].getMedarbejdere())
+                {
+                    s+= m.getMedarbejderID() + ", ";
+                }
+                s+= "]";
             }
+
             s+= "\n";
         }
         return s;
@@ -73,7 +78,7 @@ public class Vagtplan {
         s+= "\n   Uge "+ugeNr + "\n\n";
         for (int dag = 0; dag < vagter.length; dag++)
         {
-            for (int time = 0; time < 16; time++)
+            for (int time = 0; time < 8; time++)
             {
                 s+= vagter[dag][time].toString() + " Medarbejdere";
                 s+= vagter[dag][time].getMedarbejdere().toString() + "\n";

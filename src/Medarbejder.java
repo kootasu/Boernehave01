@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
@@ -28,7 +29,22 @@ public class Medarbejder {
 
 
     public void seVagtplan() {      //Metode
+        int taeller = 1;
+        int valg;
+        Scanner input = new Scanner(System.in);
+        String[] filer = new File("src/lister/Vagtplaner/").list();
 
+        System.out.println("Hvilken vagtplan vil du se?");
+
+        for (String fil : filer)
+        {
+            System.out.println(taeller + " : " + fil);
+            taeller++;
+        }
+
+        valg = input.nextInt();
+
+        System.out.println(Lister.vagtplanliste.get(valg - 1).toString());
     }
 
     public void sletVagtOenske() { //Metode
@@ -73,6 +89,13 @@ public class Medarbejder {
         */
     }
 
+    public String getMedarbejderID() {
+        return medarbejderID;
+    }
+
+    public void setMedarbejderID(String medarbejderID) {
+        this.medarbejderID = medarbejderID;
+    }
 
     public void oenskVagt() {
         Scanner sc = new Scanner(System.in);
@@ -95,8 +118,8 @@ public class Medarbejder {
 
     @Override
     public String toString() {
-        return navn + "," + email + "," + telefonnummer + "," +
-                brugernavn + "," + password + "," +
-                stue + "," + stilling;
+        return navn + ", " + email + ", " + telefonnummer + ", " +
+                brugernavn + ", " + password + ", " +
+                stue + ", " + stilling + ", "+ medarbejderID;
     }
 }

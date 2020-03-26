@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 import java.text.SimpleDateFormat;
 
 public class Lister {
@@ -30,6 +27,7 @@ public class Lister {
                 String medarbejderID = info [7];
                 medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling, medarbejderID));
             }
+            f.close();
         }
         catch (Exception e) {}
     }
@@ -82,22 +80,60 @@ public class Lister {
 
     public static void opretVagtplanliste()
     {
+        Scanner input = null;
         String[] vagtplaner = new File("src/lister/Vagtplaner/").list();
         for (String s : vagtplaner)
         {
             try {
                 File f = new File("src/lister/Vagtplaner/"+s);
-                Scanner input = new Scanner(f);
+                input = new Scanner(f);
                 Date startTidspunkt = new Date(Long.parseLong(input.nextLine()));
                 int antalDage = input.nextInt();
                 Vagtplan vagtplan = new Vagtplan(startTidspunkt, antalDage);
                 vagtplanliste.add(vagtplan);
+
+                input = new Scanner(f);
+                input.nextLine();
+                input.nextLine();
+                while (input.hasNextLine())
+                {
+                    String linje = input.nextLine();
+                    if (linje.length() != 0)
+                    {
+                        String dato = linje.substring(0, 28);
+                        Date date = udtraekDato(dato);
+                        String[] medarbejdereArray = linje.substring(linje.indexOf('[')+1, linje.indexOf(']')).split(",");
+                        for (int i = 0; i < vagtplan.getVagter().length; i++) {
+                            for (int j = 0; j < vagtplan.getVagter()[i].length; j++) {
+                                if (vagtplan.getVagter()[i][j].getTime() == date.getTime()) {
+                                    for (Medarbejder m : Lister.medarbejderliste)
+                                    {
+                                        for (String b : medarbejdereArray)
+                                        {
+                                            if (m.getMedarbejderID().equals(b.trim()))
+                                            {
+                                                vagtplan.getVagter()[i][j].getMedarbejdere().add(m);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                input.close();
             }
             catch (Exception e)
             {
-                System.out.println("Opret vagtplan liste: " + e.getMessage());
+                System.out.println("Opret vagtplan liste: " + e + e.getMessage());
+                e.printStackTrace();
+                input.close();
             }
+            input.close();
+
         }
+        input.close();
 
     }
 
