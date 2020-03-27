@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
@@ -123,7 +125,6 @@ public class Lister {
                 }
 
                 input.close();
-                System.out.println("Scanner er lukket");
             }
             catch (Exception e)
             {
@@ -234,5 +235,23 @@ public class Lister {
             }
         }
         catch (Exception e) {}
+    }
+
+    public static void opdaterVagtOenskeListe()
+    {
+        FileWriter f = null;
+        try {
+            f = new FileWriter(new File("src/lister/VagtOensker"));
+            for (VagtOensker vo : vagtoenskeliste)
+            {
+                f.write(vo.toString() + "\n");
+            }
+            f.close();
+        }
+        catch (IOException io)
+        {
+            System.out.println("Kunne ikke åbne VagtOensker filen: " + io.getMessage());
+            io.printStackTrace();
+        }
     }
 }

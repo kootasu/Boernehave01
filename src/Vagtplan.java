@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -11,9 +14,9 @@ public class Vagtplan {
         this.vagter = vagter;
     }
 
-    Vagt[][] vagter;
-    Date startTidspunkt;
-    int antalDage;
+    private Vagt[][] vagter;
+    private Date startTidspunkt;
+    private int antalDage;
 
     public Vagtplan(Date startTidspunkt, int antalDage)
     {
@@ -63,13 +66,59 @@ public class Vagtplan {
                 {
                     s+= m.getMedarbejderID() + ", ";
                 }
-                s+= "]";
+                s+= "]\n";
+
             }
 
             s+= "\n";
         }
         return s;
     }
+
+    public Date getStartTidspunkt() {
+        return startTidspunkt;
+    }
+
+    public void setStartTidspunkt(Date startTidspunkt) {
+        this.startTidspunkt = startTidspunkt;
+    }
+
+    public int getAntalDage() {
+        return antalDage;
+    }
+
+    public void setAntalDage(int antalDage) {
+        this.antalDage = antalDage;
+    }
+
+    public void gemVagtPlan(String filNavn)
+    {
+        FileWriter f = null;
+        try {
+            f = new FileWriter(new File(filNavn));
+            f.write(TextFilFormat());
+            f.close();
+        }
+        catch (IOException io) {
+            System.out.println("Kunne ikke gemme vagtplanen: " + filNavn + io.getMessage());
+            io.printStackTrace();
+        }
+    }
+
+    public String getFilNavn()
+    {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(startTidspunkt);
+        String filNavnStartTid;
+        String filNavnSlutTid;
+
+        filNavnStartTid = ""+ calendar.get(Calendar.DATE) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.YEAR);
+        calendar.add(Calendar.DATE, antalDage);
+        filNavnSlutTid =  ""+ calendar.get(Calendar.DATE) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.YEAR);
+
+        return "src/lister/Vagtplaner/vagtplan " + filNavnStartTid + " " + filNavnSlutTid + ".txt";
+    }
+
     @Override
     public String toString()
     {
