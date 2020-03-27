@@ -78,4 +78,18 @@ public class Barn {
     public void setOpskrviningsdato(Date opskrviningsdato) {
         this.opskrivningsdato = opskrviningsdato;
     }
+
+    @Override
+    public String toString() {
+        return "Barn{" +
+                "stue='" + stue + '\'' +
+                ", aktiv=" + aktiv +
+                ", foraelder1=" + foraelder1.getNavn() +
+                ", foraelder2=" + foraelder2.getNavn() +
+                ", navn='" + navn + '\'' +
+                ", alder=" + alder +
+                ", koen='" + koen + '\'' +
+                ", opskrivningsdato=" + opskrivningsdato +
+                '}';
+    }
 }

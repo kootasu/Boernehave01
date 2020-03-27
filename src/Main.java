@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
+import java.util.List;
 
 public class Main {
 
@@ -12,9 +13,17 @@ public class Main {
         Lister liste = new Lister();
         liste.opretVagtOenskerListe();
         liste.opretMedarbejderliste();
+        liste.opretForaelderliste();
+
+        liste.opretBoerneliste();
+        for (Barn b : Lister.boerneliste)
+        {
+            System.out.println(b);
+        }
 
         Leder leder = new Leder();
-        leder.godkendEllerAfvisVagtoenske();
+        //leder.opdaterForaelder(1);
+        //leder.godkendEllerAfvisVagtoenske();
         //leder.opretVagtplan();
         /*Lister liste = new Lister();
         liste.opretVagtOenskerListe();
