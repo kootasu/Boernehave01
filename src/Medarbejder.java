@@ -3,7 +3,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Medarbejder {
@@ -15,8 +17,9 @@ public class Medarbejder {
     private String stue;
     private String stilling;
     private String medarbejderID;
+    //private ArrayList<String> attributliste;
 
-    public Medarbejder(String navn, String email, String telefonnummer, String brugernavn, String password, String stue, String stilling, String medarbejderID) {
+    public Medarbejder(String navn, String email, String telefonnummer, String brugernavn, String password, String stue, String stilling, String medarbejderID/*, ArrayList attributliste*/) {
         this.navn = navn;
         this.email = email;
         this.telefonnummer = telefonnummer;
@@ -25,8 +28,8 @@ public class Medarbejder {
         this.stue = stue;
         this.stilling = stilling;
         this.medarbejderID = medarbejderID;
+        //this.attributliste = attributliste;
     }
-
 
     public void seVagtplan() {      //Metode
         int taeller = 1;
@@ -101,26 +104,19 @@ public class Medarbejder {
         Scanner sc = new Scanner(System.in);
         System.out.println("Hej," + navn + ". Indtast information på din ønskede vagt:");
         System.out.println("Starttidspunkt for vagt: ");
-        //String tidStart = sc.nextLine();
         Date tidStart = new Date(Long.parseLong(sc.nextLine()));
         System.out.println("Sluttidspunkt for vagt: ");
-        //String tidSlut = sc.nextLine();
         Date tidSlut = new Date(Long.parseLong(sc.nextLine()));
-        //System.out.println("Dato for vagt: ");
 
-        // Tilføjer forælderobjekt til ArrayList foraelderliste
+        // Tilføjer vagtønsket til ArrayList vagtoenskeliste
         Lister.vagtoenskeliste.add(new VagtOensker (tidStart, tidSlut, medarbejderID));
-
-        // Metode til at slette?
-
-        // Metode til at skrive til liste
     }
 
     @Override
     public String toString() {
-        return navn + ", " + email + ", " + telefonnummer + ", " +
-                brugernavn + ", " + password + ", " +
-                stue + ", " + stilling + ", "+ medarbejderID;
+        return navn + "," + email + "," + telefonnummer + "," +
+                brugernavn + "," + password + "," +
+                stue + "," + stilling + ","+ medarbejderID;
     }
 
     public String getNavn() {
@@ -178,5 +174,15 @@ public class Medarbejder {
     public void setStilling(String stilling) {
         this.stilling = stilling;
     }
+
+    /*
+    public ArrayList<String> getAttributliste() {
+        return attributliste;
+    }
+
+    public void setAttributliste(ArrayList<String> attributliste) {
+        this.attributliste = attributliste;
+    }
+    */
 
 }

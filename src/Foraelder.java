@@ -48,10 +48,18 @@ public class Foraelder {
 
     public void setPassword(String password) { this.password = password; }
 
+    public String getIdNummer() {
+        return idNummer;
+    }
+
+    public void setIdNummer(String idNummer) {
+        this.idNummer = idNummer;
+    }
+
     @Override
     public String toString() {
         return navn + "," + adresse + "," + email + "," +
                 telefonnummer1 + "," + telefonnummer2 + "," +
-                brugernavn + "," + password;
+                brugernavn + "," + password + "," + idNummer;
     }
 }

@@ -8,9 +8,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
 
+        /*
         Lister.opretVagtplanliste();
         Leder leder = new Leder();
         leder.sletVagtplan();
+        */
         /*Lister liste = new Lister();
         liste.opretVagtOenskerListe();
         for (VagtOensker v:  Lister.vagtoenskeliste)
@@ -69,13 +71,21 @@ public class Main {
         Lister.medarbejderliste.get(0).oenskVagt2();
         */
 
-        // Se medarbejder
+        /*
+        // Se, opdater og slet forældre
+        Lister lister = new Lister();
+        lister.opretForaelderliste();
+        Leder leder = new Leder();
+        leder.seForaelder();
+        */
+
+        /*
+        // Se, opdater og slet medarbejdere
         Lister lister = new Lister();
         lister.opretMedarbejderliste();
         Leder leder = new Leder();
         leder.seMedarbejder();
-
-
+        */
 
     }
 }
