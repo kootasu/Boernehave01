@@ -167,12 +167,12 @@ public class Leder {
             startTidspunkt = new Date(Long.parseLong(input.nextLine()));
             antalDage = input.nextInt();
             for (Vagtplan vagtplan : Lister.vagtplanliste) {
-                if (vagtplan.startTidspunkt.equals(startTidspunkt) && vagtplan.antalDage == antalDage) {
+                if (vagtplan.getStartTidspunkt().equals(startTidspunkt) && vagtplan.getAntalDage() == antalDage) {
                     valgteVagtplan = vagtplan;
                 }
             }
             for (int i = 0; i < Lister.vagtplanliste.size(); i++) {
-                if (Lister.vagtplanliste.get(i).startTidspunkt.equals(startTidspunkt) && Lister.vagtplanliste.get(i).antalDage == antalDage) {
+                if (Lister.vagtplanliste.get(i).getStartTidspunkt().equals(startTidspunkt) && Lister.vagtplanliste.get(i).getAntalDage() == antalDage) {
                     valgteVagtplan = Lister.vagtplanliste.get(i);
                 }
             }
@@ -478,7 +478,86 @@ public class Leder {
     }
 
     public void godkendEllerAfvisVagtoenske() {
-        // Metode
+        int valg;
+        Scanner scanner = new Scanner(System.in);
+        VagtOensker vagtOenske;
+
+        System.out.println("Vælg hvilken vagtønske du vil godkende/afvise.\n");
+        System.out.println("Liste over vagtønsker");
+        for (int i = 0; i < Lister.vagtoenskeliste.size(); i++)
+        {
+            System.out.println(i +1 + " : " + Lister.vagtoenskeliste.get(i));
+        }
+        valg = scanner.nextInt() - 1;
+        vagtOenske = Lister.vagtoenskeliste.get(valg);
+
+        System.out.println("1 : Godekend - "+ vagtOenske.toString());
+        System.out.println("2 : Afvis - " + vagtOenske.toString());
+
+        valg = scanner.nextInt();
+
+        if (valg == 1)
+        {
+            for (Vagtplan vagtplan : Lister.vagtplanliste)
+            {
+                Date slutTidspunkt;
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(vagtplan.getStartTidspunkt());
+                calendar.add(Calendar.DATE, vagtplan.getAntalDage());
+                slutTidspunkt = calendar.getTime();
+                if (vagtOenske.getStarttidspunkt().getTime()>= vagtplan.getStartTidspunkt().getTime() && vagtOenske.getSluttidspunkt().getTime() <= slutTidspunkt.getTime())
+                {
+                    Calendar vagtOenskerCalender = Calendar.getInstance();
+                    vagtOenskerCalender.setTime(vagtOenske.getStarttidspunkt());
+                    while (vagtOenskerCalender.getTime().getTime() <= vagtOenske.getSluttidspunkt().getTime())
+                    {
+                        if (findVagt(vagtOenskerCalender.getTime()) != null) {
+                            findVagt(vagtOenskerCalender.getTime()).getMedarbejdere().add(Lister.medarbejderliste.get(Integer.parseInt(vagtOenske.getMedarbejderID())));
+                            vagtOenskerCalender.add(Calendar.HOUR, 1);
+                        }
+                        else
+                            break;
+                    }
+
+                    Lister.opretVagtplanliste();
+                    vagtplan.gemVagtPlan(vagtplan.getFilNavn());
+                    Lister.vagtoenskeliste.remove(vagtOenske);
+                    Lister.opdaterVagtOenskeListe();
+                    System.out.println("Medarbejderen er nu tilføjet til vagten.");
+                    return;
+
+                }
+                else
+                {
+                    System.out.println("Der findes ikke en vagt til vagtønsket");
+                    return;
+                }
+
+            }
+
+        }
+        else if (valg == 2)
+        {
+            Lister.vagtoenskeliste.remove(vagtOenske);
+            Lister.opdaterVagtOenskeListe();
+            System.out.println("Vagtønsket er nu slettet.");
+        }
+    }
+
+    public Vagt findVagt(Date tidspunnkt)
+    {
+        for (Vagtplan vagtplan : Lister.vagtplanliste)
+        {
+            for (Vagt[] dag : vagtplan.getVagter())
+            {
+                for (Vagt time : dag)
+                {
+                    if (time.getTime() == tidspunnkt.getTime())
+                        return time;
+                }
+            }
+        }
+        return null;
     }
 
 
