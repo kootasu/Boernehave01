@@ -1,9 +1,5 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Calendar;
-import java.util.List;
 
 public class Main {
 
@@ -17,6 +13,12 @@ public class Main {
         liste.opretBoerneliste();
         Leder leder = new Leder();
         Lister.foraelderliste.get(1).skrivBarnPaaVenteliste();
+        for (Barn b : Lister.boerneliste)
+        {
+            System.out.println(b);
+        }
+
+        Leder leder = new Leder();*/
         //leder.opdaterForaelder(1);
         //leder.godkendEllerAfvisVagtoenske();
         //leder.opretVagtplan();

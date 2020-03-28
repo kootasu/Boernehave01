@@ -35,32 +35,24 @@ public class Lister {
     }
 
 
-    public void opretBoerneliste()  {
-
+    // Laurits: Jeg har lidt bøvl med denne metode
+    public void opretBoerneliste() throws FileNotFoundException {
+        File boernFraFil = new File("src/lister/Boern.txt");
+        Scanner f = new Scanner(boernFraFil);
         try {
-            File boernFraFil = new File("src/lister/Boern");
-            Scanner f = new Scanner(boernFraFil);
             while (f.hasNextLine()) {
                 String[] info = f.nextLine().split(",");
                 String stue = info[0];
                 boolean aktiv = Boolean.parseBoolean(info[1]);
-                Foraelder foraelder1 = null;
-                Foraelder foraelder2 = null;
-                for (Foraelder foraeldre : foraelderliste)
-                {
-                    if (foraeldre.getIdNummer().equals(info[3]))
-                        foraelder1 = foraeldre;
-                    else if (foraeldre.getIdNummer().equals(info[4]))
-                        foraelder2 = foraeldre;
-
-                }
-                String navn = info[2];
+                String foraelderID1 = info[2]; // Thomas: Vi har givet forældrene nogle id numre så vi ikke behøver at have hele forældre objektet i børnefilen.
+                String foraelderID2 = info[3];
+                String navn = info[4];
                 int alder = Integer.parseInt(info[5]);
                 String koen = info[6];
-                Date opskrivningsdato = new SimpleDateFormat("dd-MM-yyyy").parse(info[7]);
-                boerneliste.add(new Barn(stue, aktiv, foraelder1, foraelder2, navn, alder, koen, opskrivningsdato));
+                Date opskrivningsdato = new SimpleDateFormat("dd/MM/yyyy").parse(info[7]);
+                boerneliste.add(new Barn(stue, aktiv, foraelderID1, foraelderID2, navn, alder, koen, opskrivningsdato));
             }
-        }
+    }
         catch (Exception e) {
             System.out.println("Fejl i opretboerneliste : " + e.getMessage());
             e.printStackTrace();
@@ -248,9 +240,11 @@ public class Lister {
                 Date tidSlut = new Date(udtraekDato(info[1]).getTime());
                 String medarbejderID = info[2];
                 vagtoenskeliste.add(new VagtOensker(tidStart, tidSlut, medarbejderID));
+                sc.close();
             }
         }
         catch (Exception e) {}
+
     }
 
     public static void opdaterVagtOenskeListe()

@@ -5,22 +5,22 @@ public class Barn {
 
    private String stue;
    private boolean aktiv;
-   private Foraelder foraelder1;
-   private Foraelder foraelder2;
    private String navn;
+   private String foraelder1;
+   private String foraelder2;
    private int alder;
    private String koen;
    private Date opskrivningsdato;
 
-    public Barn(String stue, boolean aktiv, Foraelder foraelder1, Foraelder foraelder2, String navn, int alder, String koen, Date opskrviningsdato) {
+    public Barn(String stue, boolean aktiv, String navn, String foraelderID1, String foraelderID2, int alder, String koen, Date opskrivningsdato) {
         this.stue = stue;
         this.aktiv = aktiv;
-        this.foraelder1 = foraelder1;
-        this.foraelder2 = foraelder2;
         this.navn = navn;
+        this.foraelder1 = foraelderID1;
+        this.foraelder2 = foraelderID2;
         this.alder = alder;
         this.koen = koen;
-        this.opskrivningsdato = opskrviningsdato;
+        this.opskrivningsdato = opskrivningsdato;
     }
     public String getStue() {
         return stue;
@@ -31,20 +31,19 @@ public class Barn {
     }
 
 
-
-    public Foraelder getForaelder1() {
+    public String getForaelder1() {
         return foraelder1;
     }
 
-    public void setForaelder1(Foraelder foraelder1) {
+    public void setForaelder1(String foraelder1) {
         this.foraelder1 = foraelder1;
     }
 
-    public Foraelder getForaelder2() {
+    public String getForaelder2() {
         return foraelder2;
     }
 
-    public void setForaelder2(Foraelder foraelder2) {
+    public void setForaelder2(String foraelder2) {
         this.foraelder2 = foraelder2;
     }
 
@@ -94,8 +93,8 @@ public class Barn {
         return "Barn{" +
                 "stue='" + stue + '\'' +
                 ", aktiv=" + aktiv +
-                ", foraelder1=" + foraelder1.getNavn() +
-                ", foraelder2=" + foraelder2.getNavn() +
+              //  ", foraelder1=" + foraelder1.getNavn() +
+              //  ", foraelder2=" + foraelder2.getNavn() +
                 ", navn='" + navn + '\'' +
                 ", alder=" + alder +
                 ", koen='" + koen + '\'' +

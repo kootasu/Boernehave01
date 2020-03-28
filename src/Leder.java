@@ -1,8 +1,7 @@
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.*;
 
 public class Leder {
@@ -421,7 +420,7 @@ public class Leder {
     public void opdaterForaelder(int indeks) throws IOException {
         Foraelder f = Lister.foraelderliste.get(indeks);
         ArrayList<String> attributliste = new ArrayList<String>(List.of(f.getNavn(), f.getAdresse(), f.getEmail(), f.getTelefonnummer1(), f.getTelefonnummer2(), f.getBrugernavn(), f.getPassword(), f.getIdNummer()));
-        System.out.println("Du har ny følgende muligheder:");
+        System.out.println("Du har nu følgende muligheder:");
         for (int i = 0; i < attributliste.size(); i++) {
             System.out.println("[" + i + "] " + attributliste.get(i));
         }
@@ -559,6 +558,5 @@ public class Leder {
         }
         return null;
     }
-
 
 }
