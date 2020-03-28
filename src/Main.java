@@ -14,14 +14,9 @@ public class Main {
         liste.opretVagtOenskerListe();
         liste.opretMedarbejderliste();
         liste.opretForaelderliste();
-
         liste.opretBoerneliste();
-        for (Barn b : Lister.boerneliste)
-        {
-            System.out.println(b);
-        }
-
         Leder leder = new Leder();
+        Lister.foraelderliste.get(1).skrivBarnPaaVenteliste();
         //leder.opdaterForaelder(1);
         //leder.godkendEllerAfvisVagtoenske();
         //leder.opretVagtplan();

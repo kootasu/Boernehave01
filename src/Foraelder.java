@@ -1,3 +1,9 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.Scanner;
+
 public class Foraelder {
 
     private String navn;
@@ -54,6 +60,60 @@ public class Foraelder {
 
     public void setIdNummer(String idNummer) {
         this.idNummer = idNummer;
+    }
+
+    public void skrivBarnPaaVenteliste()
+    {
+        String stue;
+        String barneNavn;
+        Foraelder foraelder;
+        int alder;
+        String koen;
+        Date opskrivningsDato;
+        Scanner input;
+        Barn barn;
+        Lister liste;
+
+        input = new Scanner(System.in);
+
+        System.out.println("Hvilken stue skal barnet opskrives på?");
+        stue = input.nextLine();
+
+        System.out.println("Hvad er barnets navn?");
+        barneNavn = input.nextLine();
+
+        System.out.println("Hvad er barnets alder?");
+        alder = Integer.parseInt(input.nextLine());
+
+        System.out.println("Hvad er barnets køn?");
+        koen =  input.nextLine();
+
+        opskrivningsDato = new Date();
+
+        foraelder = this; // Man kunne evt. oprette en ny forælder, men her er de 2 forælder de samme.
+
+        barn = new Barn(stue, false, this, foraelder, barneNavn, alder, koen, opskrivningsDato);
+
+        Lister.boerneliste.add(barn);
+        Leder leder = new Leder();
+        try {
+            FileWriter sletText = new FileWriter("src/lister/Boern");
+            sletText.write("");
+            sletText.close();
+            FileWriter f = new FileWriter("src/lister/Boern", true);
+            for (int i = 0; i < Lister.boerneliste.size(); i++) {
+                f.write(Lister.boerneliste.get(i).barnTextFilFormat() + "\n");
+            }
+            f.close();
+        } catch (IOException e) {
+            System.out.println("Der skete en fejl ifm. at skrive barnet på venteliste: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+
+
+
+
     }
 
     @Override

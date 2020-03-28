@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Date;
 
 public class Barn {
@@ -77,6 +78,14 @@ public class Barn {
 
     public void setOpskrviningsdato(Date opskrviningsdato) {
         this.opskrivningsdato = opskrviningsdato;
+    }
+
+    public String barnTextFilFormat()
+    {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(opskrivningsdato);
+        String s = String.format("%s,%s,%s,%s,%s,%d,%s,%s", stue, aktiv, navn, foraelder1.getIdNummer(), foraelder2.getIdNummer(), alder, koen, ""+ calendar.get(Calendar.DATE) + "-" + calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.YEAR));
+        return s;
     }
 
     @Override
