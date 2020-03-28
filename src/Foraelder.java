@@ -110,8 +110,26 @@ public class Foraelder {
             e.printStackTrace();
         }
 
+        Venteliste.opskrivboern(barn);
 
 
+
+
+
+    }
+
+    public void seVentelistePlacering()
+    {
+        Barn barn = null;
+
+        //Finder forælderens barn
+        for (Barn b : Lister.boerneliste)
+        {
+            if (b.getForaelder1().getIdNummer() == idNummer || b.getForaelder2().getIdNummer() == idNummer)
+                barn = b;
+        }
+
+        System.out.println("Barnet er nummer: " + Venteliste.findPlacering(barn) + " på ventelisten.");
 
 
     }
