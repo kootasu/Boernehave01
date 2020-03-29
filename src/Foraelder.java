@@ -109,7 +109,6 @@ public class Foraelder {
             e.printStackTrace();
         }
 
-        Venteliste.opskrivboern(barn);
     }
 
     public void seVentelistePlacering()

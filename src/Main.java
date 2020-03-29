@@ -4,6 +4,16 @@ import java.text.ParseException;
 public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
+        Lister.opretForaelderliste();
+
+        Lister.opretBoerneliste();
+
+        Venteliste.opretVenteliste();
+
+       for (Barn b : Venteliste.boern)
+       {
+           System.out.println(b);
+       }
 
         /*
         Lister.opretVagtplanliste();

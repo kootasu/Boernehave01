@@ -1,7 +1,7 @@
 import java.util.Calendar;
 import java.util.Date;
 
-public class Barn {
+public class Barn implements Comparable<Barn> {
 
     private String stue;
     private boolean aktiv;
@@ -101,5 +101,27 @@ public class Barn {
                 ", koen='" + koen + '\'' +
                 ", opskrivningsdato=" + opskrivningsdato +
                 '}';
+    }
+
+    public boolean isAktiv() {
+        return aktiv;
+    }
+
+    public void setAktiv(boolean aktiv) {
+        this.aktiv = aktiv;
+    }
+
+    @Override
+    public int compareTo(Barn o) {
+        if (opskrivningsdato.getTime() > o.getOpskrviningsdato().getTime())
+        {
+            return 1;
+        }
+        else if (opskrivningsdato.getTime() < o.getOpskrviningsdato().getTime())
+        {
+            return -1;
+        }
+        else
+            return 0;
     }
 }

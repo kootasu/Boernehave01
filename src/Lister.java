@@ -35,23 +35,32 @@ public class Lister {
     }
 
 
-    public static void opretBoerneliste() throws FileNotFoundException {
-        File boernFraFil = new File("src/lister/Boern");
-        Scanner f = new Scanner(boernFraFil);
+    public static void opretBoerneliste()  {
+
         try {
+            File boernFraFil = new File("src/lister/Boern");
+            Scanner f = new Scanner(boernFraFil);
             while (f.hasNextLine()) {
                 String[] info = f.nextLine().split(",");
                 String stue = info[0];
                 boolean aktiv = Boolean.parseBoolean(info[1]);
-                String foraelderID1 = info[2]; // Thomas: Vi har givet forældrene nogle id numre så vi ikke behøver at have hele forældre objektet i børnefilen.
-                String foraelderID2 = info[3];
-                String navn = info[4];
+                Foraelder foraelder1 = null;
+                Foraelder foraelder2 = null;
+                for (Foraelder foraeldre : foraelderliste)
+                {
+                    if (foraeldre.getIdNummer().equals(info[3]))
+                        foraelder1 = foraeldre;
+                    else if (foraeldre.getIdNummer().equals(info[4]))
+                        foraelder2 = foraeldre;
+
+                }
+                String navn = info[2];
                 int alder = Integer.parseInt(info[5]);
                 String koen = info[6];
                 Date opskrivningsdato = new SimpleDateFormat("dd/MM/yyyy").parse(info[7]);
-                boerneliste.add(new Barn(stue, aktiv, foraelderID1, foraelderID2, navn, alder, koen, opskrivningsdato));
+                boerneliste.add(new Barn(stue, aktiv, foraelder1, foraelder2, navn, alder, koen, opskrivningsdato));
             }
-    }
+        }
         catch (Exception e) {
             System.out.println("Fejl i opretboerneliste : " + e.getMessage());
             e.printStackTrace();

@@ -1,5 +1,6 @@
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class Venteliste {
@@ -8,14 +9,18 @@ public class Venteliste {
 
    static LinkedList<Barn>boern = new LinkedList<>();
 
-   public static void opskrivboern (Barn barn){
-       for (int i = 0; i < Lister.boerneliste.size(); i++) {
-           if (!Lister.boerneliste.get(i).isAktiv()) {
-             // Tilføj funktionalitet: Tilføj børn i rigtig rækkefølge ud fra opskrivningsdato
-             boern.addLast(barn);
-            }
-        }
+   public static void opretVenteliste()
+   {
+       for (Barn barn : Lister.boerneliste)
+       {
+           if (!barn.isAktiv())
+           {
+               boern.add(barn);
+           }
+       }
+       Collections.sort(boern);
    }
+
 
    public static int findPlacering(Barn barn)
    {
