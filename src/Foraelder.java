@@ -1,6 +1,3 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -91,7 +88,7 @@ public class Foraelder {
 
         foraelder = this; // Man kunne evt. oprette en ny forælder, men her er de 2 forælder de samme.
 
-        barn = new Barn(stue, false, this, foraelder, barneNavn, alder, koen, opskrivningsDato);
+        /*barn = new Barn(stue, false, this, foraelder, barneNavn, alder, koen, opskrivningsDato);
 
         Lister.boerneliste.add(barn);
         Leder leder = new Leder();
@@ -110,7 +107,6 @@ public class Foraelder {
         }
 
     }
-
     public void seVentelistePlacering()
     {
         Barn barn = null;
@@ -130,5 +126,8 @@ public class Foraelder {
         return navn + "," + adresse + "," + email + "," +
                 telefonnummer1 + "," + telefonnummer2 + "," +
                 brugernavn + "," + password + "," + idNummer;
+    }
+}
+*/
     }
 }

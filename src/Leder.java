@@ -19,7 +19,6 @@ public class Leder {
         this.brugernavn = brugernavn;
         this.password = password;
     }
-
     public Leder() {
     }
 
@@ -285,15 +284,17 @@ public class Leder {
     public void seMedarbejder() throws IOException {
         // Printer alle medarbejdere fra ArrayListen medarbejderliste
         sePerson(Lister.medarbejderliste);
+        System.out.println();
 
         // Vælg en medarbejder
         Scanner sc = new Scanner(System.in);
         int indeks = sc.nextInt();
         System.out.println("Du har valgt " + Lister.medarbejderliste.get(indeks).getNavn());
 
-        System.out.println("Du har nu følgende muligheder: [1] Opdater, [2] Slet, [3] Tilbage");
+        System.out.println("Du har nu følgende muligheder: [1] Opdater, [2] Slet, [3] Tilbage til Medarbejdermenu");
         int valg = sc.nextInt();
         switch (valg) {
+
             case 1:
                 opdaterMedarbejder(indeks);
                 break;
@@ -301,7 +302,6 @@ public class Leder {
                 sletMedarbejder(indeks);
                 break;
             case 3:
-                System.out.println("Tilbage");
                 seMedarbejder();
                 break;
         }

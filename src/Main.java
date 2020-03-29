@@ -4,107 +4,12 @@ import java.text.ParseException;
 public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
+        Lister.opretMedarbejderliste();
         Lister.opretForaelderliste();
-
         Lister.opretBoerneliste();
-
         Venteliste.opretVenteliste();
 
-       for (Barn b : Venteliste.boern)
-       {
-           System.out.println(b);
-       }
-
-        /*
-        Lister.opretVagtplanliste();
-        Lister.opretMedarbejderliste();
-        Lister.opdaterVagtOenskeListe();
-        Lister.opretForaelderliste();
-        Lister.opretBoerneliste();
-        Leder leder = new Leder();
-        Lister.foraelderliste.get(1).skrivBarnPaaVenteliste();
-        for (Barn b : Lister.boerneliste)
-        {
-            System.out.println(b);
-        }
-        */
-
-        //leder.opdaterForaelder(1);
-        //leder.godkendEllerAfvisVagtoenske();
-        //leder.opretVagtplan();
-        /*Lister liste = new Lister();
-        liste.opretVagtOenskerListe();
-        for (VagtOensker v:  Lister.vagtoenskeliste)
-        {
-            System.out.println(v.getStarttidspunkt());
-            System.out.println(v.getSluttidspunkt());
-            System.out.println(v.getMedarbejderID());
-        }*/
-
-        /*
-        Lister.opretVagtplanliste();
-        Lister liste = new Lister();
-        liste.opretMedarbejderliste();
-        Leder leder = new Leder();
-        leder.opretVagtplan();
-        leder.opdaterVagtplan();
-
-        /*
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2020, 1, 1, 8, 0, 0);
-        Vagtplan vagtplan = new Vagtplan(calendar.getTime(), 8);
-        System.out.println(vagtplan);
-        */
-
-        /*
-        Lister lister = new Lister();
-        lister.opretVagtplanliste();
-        System.out.println(Lister.vagtplanliste.size());
-        */
-
-        /*
-        System.out.println(Lister.foraelderliste);
-        Lister lister = new Lister();
-        lister.opretForaelderliste();
-        System.out.println(Lister.foraelderliste);
-        Leder leder = new Leder();
-        //leder.opretForaelder();
-        //System.out.println(Lister.foraelderliste);*/
-
-        /*
-        lister.opretMedarbejderliste();
-        System.out.println(Lister.medarbejderliste);
-        leder.opretMedarbejder();
-        System.out.println(Lister.foraelderliste);
-        */
-
-        /*
-        // Her har vi en test med at oprette vagtønsker
-        Lister lister = new Lister();
-
-        lister.opretMedarbejderliste();
-
-        lister.opretVagtOenskerListe();
-        System.out.println(Lister.vagtoenskeliste);
-
-        Lister.medarbejderliste.get(0).oenskVagt2();
-        */
-
-        /*
-        // Se, opdater og slet forældre
-        Lister lister = new Lister();
-        lister.opretForaelderliste();
-        Leder leder = new Leder();
-        leder.seForaelder();
-        */
-
-        /*
-        // Se, opdater og slet medarbejdere
-        Lister lister = new Lister();
-        lister.opretMedarbejderliste();
-        Leder leder = new Leder();
-        leder.seMedarbejder();
-        */
-
+        Menuer menu = new Menuer();
+        menu.HovedMenu();
     }
 }

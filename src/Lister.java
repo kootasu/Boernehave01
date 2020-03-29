@@ -142,16 +142,18 @@ public class Lister {
             {
                 System.out.println("Opret vagtplan liste: " + e + e.getMessage());
                 e.printStackTrace();
+                assert input != null;
                 input.close();
             }
             input.close();
 
         }
-        input.close();
+        assert input != null;
+        input.nextInt();
 
     }
 
-    /* Metoden tager tage en tekst string og laver den om til en Date type. Den tager udgangs punkt i at teksten kommer fra en vagtplan fil*/
+    /* Metoden tager en tekst String og laver den om til en Date type. Den tager udgangs punkt i at teksten kommer fra en vagtplan fil*/
     public static Date udtraekDato(String dato)
     {
 
