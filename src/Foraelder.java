@@ -62,8 +62,7 @@ public class Foraelder {
         this.idNummer = idNummer;
     }
 
-    public void skrivBarnPaaVenteliste()
-    {
+    public void skrivBarnPaaVenteliste() {
         String stue;
         String barneNavn;
         Foraelder foraelder;
@@ -86,7 +85,7 @@ public class Foraelder {
         alder = Integer.parseInt(input.nextLine());
 
         System.out.println("Hvad er barnets køn?");
-        koen =  input.nextLine();
+        koen = input.nextLine();
 
         opskrivningsDato = new Date();
 
@@ -111,11 +110,6 @@ public class Foraelder {
         }
 
         Venteliste.opskrivboern(barn);
-
-
-
-
-
     }
 
     public void seVentelistePlacering()
@@ -130,8 +124,6 @@ public class Foraelder {
         }
 
         System.out.println("Barnet er nummer: " + Venteliste.findPlacering(barn) + " på ventelisten.");
-
-
     }
 
     @Override

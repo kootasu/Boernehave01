@@ -35,9 +35,8 @@ public class Lister {
     }
 
 
-    // Laurits: Jeg har lidt bøvl med denne metode
-    public void opretBoerneliste() throws FileNotFoundException {
-        File boernFraFil = new File("src/lister/Boern.txt");
+    public static void opretBoerneliste() throws FileNotFoundException {
+        File boernFraFil = new File("src/lister/Boern");
         Scanner f = new Scanner(boernFraFil);
         try {
             while (f.hasNextLine()) {
@@ -64,10 +63,7 @@ public class Lister {
 
     }
 
-
-
-
-    public void opretForaelderliste() throws FileNotFoundException {
+    public static void opretForaelderliste() throws FileNotFoundException {
         File foraeldreFraFil = new File("src/lister/Foraeldre");
         Scanner f = new Scanner(foraeldreFraFil);
         try {
@@ -82,7 +78,6 @@ public class Lister {
                 String password = info[6];
                 String idNummer = info[7];
                 foraelderliste.add(new Foraelder(navn, adresse, email, telefonnummer1, telefonnummer2, brugernavn, password, idNummer));
-                //foraelderliste.add(new Foraelder(navn, adresse, email, telefonnummer1, telefonnummer2, brugernavn, password));
             }
         }
         catch (Exception e) {}
@@ -205,8 +200,13 @@ public class Lister {
 
         }
         return date;
-
     }
+
+    /*
+    // Behøver vi alle metoder nedenfor?
+    // Kan vi nøjes med ArrayListen boerneliste, som indeholder alle børn (både passive og aktive)
+    // Plus LinkedListen boern i Venteliste, som indeholder ventelisten?
+
     public void opretLilleStueVenteliste() {
         // Metode
     }
@@ -230,6 +230,8 @@ public class Lister {
     public void opretStorStueListe() {
         // Metode
     }
+    */
+
     public void opretVagtOenskerListe() throws FileNotFoundException {
         File vagtOenskerFraFil = new File("src/lister/VagtOensker");
         Scanner sc = new Scanner(vagtOenskerFraFil);

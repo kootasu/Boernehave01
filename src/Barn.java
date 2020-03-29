@@ -79,6 +79,14 @@ public class Barn {
         this.opskrivningsdato = opskrviningsdato;
     }
 
+    public boolean isAktiv() {
+        return aktiv;
+    }
+
+    public void setAktiv(boolean aktiv) {
+        this.aktiv = aktiv;
+    }
+
     public String barnTextFilFormat()
     {
         Calendar calendar = Calendar.getInstance();
@@ -86,7 +94,6 @@ public class Barn {
         String s = String.format("%s,%s,%s,%s,%s,%d,%s,%s", stue, aktiv, navn, foraelder1.getIdNummer(), foraelder2.getIdNummer(), alder, koen, ""+ calendar.get(Calendar.DATE) + "-" + calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.YEAR));
         return s;
     }
-
 
     @Override
     public String toString() {

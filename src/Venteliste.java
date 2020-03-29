@@ -6,13 +6,15 @@ public class Venteliste {
 
    private Barn barn;
 
-    static LinkedList<Barn>boern = new LinkedList<>();
+   static LinkedList<Barn>boern = new LinkedList<>();
 
    public static void opskrivboern (Barn barn){
-
-     boern.addLast(barn);
-
-
+       for (int i = 0; i < Lister.boerneliste.size(); i++) {
+           if (!Lister.boerneliste.get(i).isAktiv()) {
+             // Tilføj funktionalitet: Tilføj børn i rigtig rækkefølge ud fra opskrivningsdato
+             boern.addLast(barn);
+            }
+        }
    }
 
    public static int findPlacering(Barn barn)

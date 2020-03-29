@@ -5,20 +5,20 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
 
+        /*
         Lister.opretVagtplanliste();
-        Lister liste = new Lister();
-        liste.opretVagtOenskerListe();
-        liste.opretMedarbejderliste();
-        liste.opretForaelderliste();
-        liste.opretBoerneliste();
+        Lister.opretMedarbejderliste();
+        Lister.opdaterVagtOenskeListe();
+        Lister.opretForaelderliste();
+        Lister.opretBoerneliste();
         Leder leder = new Leder();
         Lister.foraelderliste.get(1).skrivBarnPaaVenteliste();
         for (Barn b : Lister.boerneliste)
         {
             System.out.println(b);
         }
+        */
 
-        Leder leder = new Leder();*/
         //leder.opdaterForaelder(1);
         //leder.godkendEllerAfvisVagtoenske();
         //leder.opretVagtplan();
