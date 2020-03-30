@@ -275,23 +275,28 @@ public class Leder {
         Lister.medarbejderliste.add(new Medarbejder(navn, email, telefonnummer, brugernavn, password, stue, stilling, medarbejderID/*, attributliste*/));
 
         // Sletter alt i tekstfilen
-        sletIndholdITekstfil("src/lister/Medarbejdere.txt");
+        sletIndholdITekstfil("src/lister/Medarbejdere");
 
         // Skriver elementerne fra ArrayListen medarbejderliste til fil
-        gemArrayListITekstfil("src/lister/Medarbejdere.txt", Lister.medarbejderliste);
+        gemArrayListITekstfil("src/lister/Medarbejdere", Lister.medarbejderliste);
     }
 
     public void seMedarbejder() throws IOException {
         // Printer alle medarbejdere fra ArrayListen medarbejderliste
+        Menuer menu = new Menuer();
+
         sePerson(Lister.medarbejderliste);
-        System.out.println();
+        System.out.println("\n[" + Lister.medarbejderliste.size() + "] Tilbage til hovedmenuen");
 
         // Vælg en medarbejder
         Scanner sc = new Scanner(System.in);
         int indeks = sc.nextInt();
+        if (indeks == Lister.medarbejderliste.size()) {
+            menu.HovedMenu();
+        }
         System.out.println("Du har valgt " + Lister.medarbejderliste.get(indeks).getNavn());
 
-        System.out.println("Du har nu følgende muligheder: [1] Opdater, [2] Slet, [3] Tilbage til Medarbejdermenu");
+        System.out.println("Du har nu følgende muligheder: [1] Opdater, [2] Slet, [3] Tilbage");
         int valg = sc.nextInt();
         switch (valg) {
 
@@ -302,8 +307,10 @@ public class Leder {
                 sletMedarbejder(indeks);
                 break;
             case 3:
-                seMedarbejder();
+                menu.HovedMenu();
                 break;
+            default:
+                System.out.println("Forkert input. Indtast et tal fra menuen.");
         }
         sc.close();
     }
@@ -469,11 +476,19 @@ public class Leder {
     }
 
     public void seVenteliste() {
-        // Metode
+
+        for (Barn barn : Venteliste.boern)
+        {
+            if (!barn.isAktiv())
+            {
+                System.out.println(barn);
+            }
+        }
+
     }
 
     public void opdaterVenteliste() {
-        // Metode
+        // Metode til at redigere venteliste.
     }
 
     public void godkendEllerAfvisVagtoenske() {

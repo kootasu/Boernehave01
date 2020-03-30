@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -23,33 +25,61 @@ public class Foraelder {
         this.idNummer = idNummer;
     }
 
-    public String getNavn() { return navn; }
+    public String getNavn() {
+        return navn;
+    }
 
-    public void setNavn(String navn) { this.navn = navn; }
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
 
-    public String getAdresse() { return adresse; }
+    public String getAdresse() {
+        return adresse;
+    }
 
-    public void setAdresse(String adresse) { this.adresse = adresse; }
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
 
-    public String getEmail() { return email; }
+    public String getEmail() {
+        return email;
+    }
 
-    public void setEmail(String email) { this.email = email; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public String getTelefonnummer1() { return telefonnummer1; }
+    public String getTelefonnummer1() {
+        return telefonnummer1;
+    }
 
-    public void setTelefonnummer1(String telefonnummer1) { this.telefonnummer1 = telefonnummer1; }
+    public void setTelefonnummer1(String telefonnummer1) {
+        this.telefonnummer1 = telefonnummer1;
+    }
 
-    public String getTelefonnummer2() { return telefonnummer2; }
+    public String getTelefonnummer2() {
+        return telefonnummer2;
+    }
 
-    public void setTelefonnummer2(String telefonnummer2) { this.telefonnummer2 = telefonnummer2; }
+    public void setTelefonnummer2(String telefonnummer2) {
+        this.telefonnummer2 = telefonnummer2;
+    }
 
-    public String getBrugernavn() { return brugernavn; }
+    public String getBrugernavn() {
+        return brugernavn;
+    }
 
-    public void setBrugernavn(String brugernavn) { this.brugernavn = brugernavn; }
+    public void setBrugernavn(String brugernavn) {
+        this.brugernavn = brugernavn;
+    }
 
-    public String getPassword() { return password; }
+    public String getPassword() {
+        return password;
+    }
 
-    public void setPassword(String password) { this.password = password; }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getIdNummer() {
         return idNummer;
@@ -88,7 +118,7 @@ public class Foraelder {
 
         foraelder = this; // Man kunne evt. oprette en ny forælder, men her er de 2 forælder de samme.
 
-        /*barn = new Barn(stue, false, this, foraelder, barneNavn, alder, koen, opskrivningsDato);
+        barn = new Barn(stue, false, this, foraelder, barneNavn, alder, koen, opskrivningsDato);
 
         Lister.boerneliste.add(barn);
         Leder leder = new Leder();
@@ -121,13 +151,10 @@ public class Foraelder {
         System.out.println("Barnet er nummer: " + Venteliste.findPlacering(barn) + " på ventelisten.");
     }
 
-    @Override
-    public String toString() {
-        return navn + "," + adresse + "," + email + "," +
-                telefonnummer1 + "," + telefonnummer2 + "," +
-                brugernavn + "," + password + "," + idNummer;
+        @Override
+        public String toString () {
+            return navn + "," + adresse + "," + email + "," +
+                    telefonnummer1 + "," + telefonnummer2 + "," +
+                    brugernavn + "," + password + "," + idNummer;
+        }
     }
-}
-*/
-    }
-}

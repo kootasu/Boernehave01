@@ -57,7 +57,7 @@ public class Lister {
                 String navn = info[2];
                 int alder = Integer.parseInt(info[5]);
                 String koen = info[6];
-                Date opskrivningsdato = new SimpleDateFormat("dd/MM/yyyy").parse(info[7]);
+                Date opskrivningsdato = new SimpleDateFormat("dd-MM-yyyy").parse(info[7]);
                 boerneliste.add(new Barn(stue, aktiv, foraelder1, foraelder2, navn, alder, koen, opskrivningsdato));
             }
         }
@@ -142,14 +142,12 @@ public class Lister {
             {
                 System.out.println("Opret vagtplan liste: " + e + e.getMessage());
                 e.printStackTrace();
-                assert input != null;
                 input.close();
             }
             input.close();
 
         }
-        assert input != null;
-        input.nextInt();
+        input.close();
 
     }
 

@@ -11,7 +11,7 @@ public class Menuer {
 
 
         System.out.println("Velkommen, vælg venligst en funktion ved at indtaste tallet");
-        System.out.println("Du har nu følgende muligheder:\n [1] Medarbejdere\n [2] Vagtplan\n [3] Boern\n [4] Venteliste\n");
+        System.out.println("Du har nu følgende muligheder:\n [1] Medarbejdere\n [2] Vagtplan\n [3] Venteliste\n");
 
         int menuValg = sc.nextInt();
         //while (menuValg > 0) {
@@ -23,9 +23,6 @@ public class Menuer {
                     VagtplanMenu();
                     break;
                 case 3:
-                   // BoerneMenu();
-                    break;
-                case 4:
                     VentelisteMenu();
                     break;
                 default:
@@ -84,31 +81,10 @@ public class Menuer {
             vagtplanMenuSc.close();
 
         }
-/*
-        public void BoerneMenu() {
-            Scanner boerneMenuSc = new Scanner(System.in);
-
-            System.out.println("----Boernemenuen----");
-            System.out.println("Du har nu følgende muligheder:\n [1] Opret barn\n [2] Se barn\n");
-
-                int boerneMenuValg = boerneMenuSc.nextInt();
-                switch (boerneMenuValg) {
-                    case 1:
-                        leder.opretBarn();
-                     break;
-                     case 2:
-                        leder.seBarn();
-                        break;
-                    default:
-                System.out.println("Ugyldig kommando. Indtast et tal fra menuen.");
-        }
-
-    }
-*/
         public void VentelisteMenu () {
             Scanner ventelisteMenuSc = new Scanner(System.in);
 
-            System.out.println("Du har nu følgende muligheder:\n [1] Se venteliste\n [2] Opdater venteliste\n");
+            System.out.println("Du har nu følgende muligheder:\n [1] Se venteliste\n [2] Tilføj barn til venteliste");
 
             int ventelisteMenuValg = ventelisteMenuSc.nextInt();
             switch (ventelisteMenuValg) {
@@ -116,7 +92,12 @@ public class Menuer {
                     leder.seVenteliste();
                     break;
                 case 2:
-                    leder.opdaterVenteliste();
+                    for (Foraelder foraelder : Lister.foraelderliste)
+                    {
+                        System.out.println(" [" + Lister.foraelderliste.indexOf(foraelder) + "] " + foraelder.toString());
+                    }
+                    int valgtForaelderSc = ventelisteMenuSc.nextInt();
+                    Lister.foraelderliste.get(valgtForaelderSc).skrivBarnPaaVenteliste();
                     break;
                 default:
                     System.out.println("Ugyldig kommando. Indtat et tal fra menuen.");

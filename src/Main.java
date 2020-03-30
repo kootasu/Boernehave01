@@ -7,6 +7,7 @@ public class Main {
         Lister.opretMedarbejderliste();
         Lister.opretForaelderliste();
         Lister.opretBoerneliste();
+        Lister.opretVagtplanliste();
         Venteliste.opretVenteliste();
 
         Menuer menu = new Menuer();
