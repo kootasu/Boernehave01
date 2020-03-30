@@ -90,17 +90,18 @@ public class Barn implements Comparable<Barn> {
 
 
     @Override
-    public String toString() {
-        return "Barn{" +
-                "stue='" + stue + '\'' +
-                ", aktiv=" + aktiv +
-                ", foraelder1=" + foraelder1.getNavn() +
-                ", foraelder2=" + foraelder2.getNavn() +
-                ", navn='" + navn + '\'' +
-                ", alder=" + alder +
-                ", koen='" + koen + '\'' +
-                ", opskrivningsdato=" + opskrivningsdato +
-                '}';
+    public String toString()
+    {
+        String s = "";
+        s+= "Barn{" + "stue='" + stue + '\'' + ", aktiv=" + aktiv;
+        if (foraelder1 != null)
+            s+= ", foraelder1=" + foraelder1.getNavn();
+        if (foraelder2 != null)
+            s+= ", foraelder2=" + foraelder2.getNavn();
+
+        s+= ", navn='" + navn + '\'' + ", alder=" + alder + ", koen='" + koen + '\'' + ", opskrivningsdato=" + opskrivningsdato + '}';
+
+        return s;
     }
 
     public boolean isAktiv() {

@@ -9,8 +9,14 @@ public class Main {
         Lister.opretBoerneliste();
         Lister.opretVagtplanliste();
         Venteliste.opretVenteliste();
+        Lister.opretVagtplanliste();
 
-        Menuer menu = new Menuer();
-        menu.HovedMenu();
+        for (Barn b : Lister.boerneliste)
+        {
+            if (!b.isAktiv())
+                System.out.println(b);
+        }
+       /* Menuer menu = new Menuer();
+        menu.HovedMenu();*/
     }
 }
