@@ -11,12 +11,8 @@ public class Main {
         Venteliste.opretVenteliste();
         Lister.opretVagtplanliste();
 
-        for (Barn b : Lister.boerneliste)
-        {
-            if (!b.isAktiv())
-                System.out.println(b);
-        }
-       /* Menuer menu = new Menuer();
-        menu.HovedMenu();*/
+
+        Menuer menu = new Menuer();
+        menu.HovedMenu();
     }
 }

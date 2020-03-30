@@ -251,7 +251,6 @@ public class Leder {
     public void opretMedarbejder() throws IOException {
         // Tager imod info fra scanner
         Scanner s = new Scanner(System.in);
-        System.out.println("Fortæl mig lidt om medarbejderen :P");
         System.out.println("Navn: ");
         String navn = s.nextLine();
         System.out.println("Email: ");
