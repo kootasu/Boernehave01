@@ -7,7 +7,8 @@ public class Menuer {
     public void HovedMenu() throws IOException {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\n--- Hovedmenu. Vælg venligst en funktion ved at indtaste tallet ---");
+        System.out.println("\n \t\t\t\t\t--- Hovedmenu ---");
+        System.out.println("--- Vælg venligst en funktion ved at indtaste tallet ---\n");
         System.out.println(" [1] Medarbejdere\n [2] Vagtplan\n [3] Venteliste\n");
 
         int menuValg = sc.nextInt();
@@ -22,11 +23,12 @@ public class Menuer {
                     VentelisteMenu();
                     break;
                 default:
-                    System.out.println("Ugyldig kommando. Indtast et tal fra menuen.");
+                    System.out.println("Forkert input. Indtast venligst et tal fra menuen som anvist");
+                    HovedMenu();
             }
 
         }
-        public void MedarbejderMenu () throws IOException {
+        public void MedarbejderMenu () throws IOException  {
             Scanner MedarbejderSc = new Scanner(System.in);
 
             System.out.println("--- Medarbejdere ---\n [1] Opret medarbejder\n [2] Se medarbejder\n [3] Tilbage til hovedmenuen");
@@ -41,12 +43,14 @@ public class Menuer {
                 case 2:
                     System.out.println("--- Se medarbejder ---");
                     leder.seMedarbejder();
+                    MedarbejderMenu();
                     break;
                 case 3:
                     HovedMenu();
                     break;
                 default:
-                    System.out.println("Ugyldig kommando. Indtast et tal fra menuen.");
+                    System.out.println("Forkert input. Indtast venligst et tal fra menuen som anvist");
+                    MedarbejderMenu();
             }
             MedarbejderSc.close();
         }
@@ -82,7 +86,8 @@ public class Menuer {
                     HovedMenu();
                     break;
                 default:
-                    System.out.println("Ugyldig kommando. Indtast et tal fra menuen.");
+                    System.out.println("Forkert input. Indtast venligst et tal fra menuen som anvist");
+                    VagtplanMenu();
             }
             vagtplanMenuSc.close();
 
@@ -90,7 +95,7 @@ public class Menuer {
         public void VentelisteMenu () throws IOException {
             Scanner ventelisteMenuSc = new Scanner(System.in);
 
-            System.out.println("Du har nu følgende muligheder:\n [1] Se venteliste\n [2] Tilføj barn til venteliste\n [3] Tilbage til hovedmenu");
+            System.out.println("--- Venteliste ---\n [1] Se venteliste\n [2] Tilføj barn til venteliste\n [3] Tilbage til hovedmenu");
 
             int ventelisteMenuValg = ventelisteMenuSc.nextInt();
             switch (ventelisteMenuValg) {
@@ -113,7 +118,8 @@ public class Menuer {
                     HovedMenu();
                     break;
                 default:
-                    System.out.println("Ugyldig kommando. Indtat et tal fra menuen.");
+                    System.out.println("Forkert input. Indtast venligst et tal fra menuen som anvist");
+                    VentelisteMenu();
             }
 
         }

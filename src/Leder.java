@@ -361,6 +361,8 @@ public class Leder {
                 // Gå tilbage
                 seMedarbejder();
                 break;
+            default:
+                System.out.println("Forkert input. Indtast venligst et tal fra menuen som anvist");
         }
         sc.close();
     }
@@ -419,6 +421,8 @@ public class Leder {
                 System.out.println("Tilbage");
                 seForaelder();
                 break;
+            default:
+                System.out.println("Forkert input. Indtast venligst et tal fra menuen som anvist");
         }
         sc.close();
     }
@@ -470,6 +474,8 @@ public class Leder {
                 // Gå tilbage
                 seForaelder();
                 break;
+            default:
+                System.out.println("Forkert input. Indtast venligst et tal fra menuen som anvist");
         }
         sc.close();
     }
